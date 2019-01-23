@@ -1,0 +1,214 @@
+/*
+ * 
+ * WordPres版微信小程序
+ * author: jianbo
+ * organization: 守望轩  www.watch-life.net
+ * github:    https://github.com/iamxjb/winxin-app-watch-life.net
+ * 技术支持微信号：iamxjb
+ * 开源协议：MIT
+ * Copyright (c) 2017 https://www.watch-life.net All rights reserved.
+ */
+
+.index-container {
+  /* padding: 0 24rpx; */
+  background-color: #fff;
+}
+
+.index-header {
+  text-align: center;
+  font-weight: normal;
+  font-size: 30rpx;
+  line-height: 40rpx;
+  /*color: #757575;*/
+  /* margin-top: 5rpx; */
+}
+
+/*   index   swiper  */
+
+swiper.index-swiper {
+  position: relative;
+  height: 420rpx;
+}
+
+swiper .swiper-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 94%;
+}
+
+swiper image {
+  display: block;
+  margin: 0 auto;
+  border-radius: 5rpx;
+  width: 94%;
+  height: 95%;
+}
+
+swiper .swiper-desc {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  /*background: linear-gradient(to bottom, rgba(0, 0, 0, 0)0%, rgba(63, 76, 88, 0.3)100%);*/
+  color: #fff;
+  line-height: 150rpx;
+  margin: 0 auto;
+  font-weight: 700;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 28rpx;
+  /* height: 120rpx; */
+  /*text-shadow: 0px 0px 16px #646d75;*/
+}
+
+/*   index   swiper  end  */
+
+.search-button {
+  border-left: 0 !important;
+  border-top: 1px solid #eee !important;
+  border-right: 1px solid #eee !important;
+  border-bottom: 1px solid #eee !important;
+  background-color: #fff !important;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 5rpx;
+  border-bottom-right-radius: 5rpx;
+  color: #296fd0 !important;
+  width: 20%;
+  margin: 0 !important;
+  /*box-shadow: 1px 1px 6px #ecf0f0;*/
+}
+
+.search-button icon {
+  position: absolute;
+  color:#959595;
+  margin: 26rpx 10rpx;
+}
+
+.search-input {
+  background-color: #fff;
+  padding: 16rpx 0 16rpx 32rpx;
+  min-height: 1rem;
+  font-size: 26rpx;
+  /*  position: absolute;*/
+  border-bottom-left-radius: 5rpx;
+  border-top-left-radius: 5rpx;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border: 1px solid #eee;
+  border-right: 0 !important;
+  height: 48rpx;
+  width: 80%;
+  text-align: left;
+  /*box-shadow: 1px 1px 6px #ecf0f0;*/
+}
+
+.share-button {
+  border: 1px solid #eee !important;
+  color: #296fd0 !important;
+  left: 10rpx;
+  height: 100rpx;
+  width: 200rpx;
+}
+
+.search-pancel {
+  display: flex;
+  flex-direction: row;
+  /*background-color: #eee;*/
+  padding: 24rpx 24rpx;
+}
+
+.search-pancel image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 20rpx;
+  vertical-align: middle;
+}
+
+
+.top-Nav{
+display: flex;
+padding: 24rpx 0;
+background: #fff;
+justify-content:space-around;
+/* border-bottom: 1px solid #eee; */
+}
+
+.top-item{
+text-align: center;
+}
+
+.top-item image{
+width: 88rpx;
+height: 88rpx;
+}
+
+.top-item text{
+line-height: 20rpx;
+font-size: 28rpx;
+color: #666;
+font-weight: 500;
+}
+
+
+.share-button{
+  opacity: 0; 
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  top:0;
+  left: 0;
+}
+
+
+
+.top-Nav2 {
+  display: flex;
+  flex-direction: row;
+  padding: 24rpx;
+  background: #fff;
+  justify-content: space-between;
+  border-bottom: 20rpx;
+}
+
+.top-Nav2-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 340rpx;
+  height: 160rpx;
+  border-radius: 5rpx;
+  background-image: url(https://weyooz.cn/wp-content/uploads/2018081115213882-768x407.jpg);
+  background-size:100%;
+}
+
+.top-Nav2-item2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 340rpx;
+  height: 160rpx;
+  border-radius: 5rpx;
+  background-image: url(https://cdn.weyooz.cn/wp-content/uploads/OyamaLeaves.jpg);
+  background-size:100%;
+}
+
+.top-Nav2-item-word {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 20rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+  color: #fff;
+  height: 60rpx;
+  width: 200rpx;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 5rpx;
+}
