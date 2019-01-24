@@ -17,4 +17,4 @@
 
 -----时间太晚了！使用方法稍后更新-----
 
-![image](https://cdn.weyooz.cn/wp-content/uploads/xcx142.png)
+小程序截图：https://weyooz.cn/notice/606.html
