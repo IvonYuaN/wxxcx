@@ -15,6 +15,7 @@
 
 部分细节优化
 
------时间太晚了！使用方法稍后更新-----
+-----这还是一条分割线-----
 
 小程序截图：https://weyooz.cn/notice/606.html
+小程序体验：![image](https://cdn.weyooz.cn/wp-content/uploads/gh_6e51a19ae569_860.jpg)
