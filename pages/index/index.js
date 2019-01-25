@@ -1,13 +1,11 @@
 /*
  * 
  * WordPres版微信小程序
- * author: jianbo
- * organization: 守望轩  www.watch-life.net
- * github:    https://github.com/iamxjb/winxin-app-watch-life.net
- * 技术支持微信号：iamxjb
- * 开源协议：MIT
+ * author: Weyooz
+ * organization: 未由时光  weyooz.cn
+ * github:    https://github.com/Weyooz/wxxcx
+ * Copyright (c) 2019 https://weyooz.cn All Rights Reserved.
  * 
- *  *Copyright (c) 2017 https://www.watch-life.net All rights reserved.
  */
 
 var Api = require('../../utils/api.js');
@@ -60,8 +58,8 @@ Page({
     else
     {
       wx.showModal({
-        title: '请不要皮',
-        content: '老老实实说要搜索什么',
+        title: '请不要这么皮',
+        content: '老老实实输关键词搜索',
         showCancel: false,
       });
 
@@ -70,7 +68,7 @@ Page({
   },
   onShareAppMessage: function () {
     return {
-      title: '“' + config.getWebsiteName+'”放浪形骸之外，独善其身',
+      title: '“' + config.getWebsiteName+'”皮就完事了',
       path: 'pages/index/index',
       success: function (res) {
         // 转发成功
@@ -139,7 +137,7 @@ Page({
                                 item.post_medium_image_300 = item.content_first_image;
                             }
                             else {
-                                item.post_medium_image_300 = "../../images/logo700.png";
+                                item.post_medium_image_300 = "../../images/logo.png";
                             }
 
                         }
@@ -210,7 +208,7 @@ Page({
                         }
 
                         if (item.post_thumbnail_image == null || item.post_thumbnail_image == '') {
-                            item.post_thumbnail_image = "../../images/logo700.png";
+                            item.post_thumbnail_image = "../../images/logo.png";
                         }
                         item.date = util.cutstr(strdate, 10, 1);
                         return item;
@@ -227,7 +225,7 @@ Page({
                         isLastPage: true
                     });
                     wx.showToast({
-                        title: '不要拉了，啥都没了',
+                        title: '啥都没了',
                         mask: false,
                         duration: 1500
                     });

@@ -1,16 +1,14 @@
 /*
  * 
  * WordPres版微信小程序
- * author: jianbo
- * organization: 守望轩  www.watch-life.net
- * github:    https://github.com/iamxjb/winxin-app-watch-life.net
- * 技术支持微信号：iamxjb
- * 开源协议：MIT
- * Copyright (c) 2017 https://www.watch-life.net All rights reserved.
+ * author: Weyooz
+ * organization: 未由时光  weyooz.cn
+ * github:    https://github.com/Weyooz/wxxcx
+ * Copyright (c) 2019 https://weyooz.cn All Rights Reserved.
+ * 
  */
 
 .index-container {
-  /* padding: 0 24rpx; */
   background-color: #fff;
 }
 
@@ -19,8 +17,6 @@
   font-weight: normal;
   font-size: 30rpx;
   line-height: 40rpx;
-  /*color: #757575;*/
-  /* margin-top: 5rpx; */
 }
 
 /*   index   swiper  */
@@ -52,7 +48,6 @@ swiper .swiper-desc {
   left: 0;
   right: 0;
   width: 100%;
-  /*background: linear-gradient(to bottom, rgba(0, 0, 0, 0)0%, rgba(63, 76, 88, 0.3)100%);*/
   color: #fff;
   line-height: 150rpx;
   margin: 0 auto;
@@ -60,9 +55,8 @@ swiper .swiper-desc {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font-size: 28rpx;
-  /* height: 120rpx; */
-  /*text-shadow: 0px 0px 16px #646d75;*/
+  font-size: 26rpx;
+
 }
 
 /*   index   swiper  end  */
@@ -80,7 +74,7 @@ swiper .swiper-desc {
   color: #296fd0 !important;
   width: 20%;
   margin: 0 !important;
-  /*box-shadow: 1px 1px 6px #ecf0f0;*/
+
 }
 
 .search-button icon {
@@ -91,10 +85,9 @@ swiper .swiper-desc {
 
 .search-input {
   background-color: #fff;
-  padding: 16rpx 0 16rpx 32rpx;
+  padding: 18rpx 0 18rpx 32rpx;
   min-height: 1rem;
   font-size: 26rpx;
-  /*  position: absolute;*/
   border-bottom-left-radius: 5rpx;
   border-top-left-radius: 5rpx;
   border-top-right-radius: 0;
@@ -104,7 +97,6 @@ swiper .swiper-desc {
   height: 48rpx;
   width: 80%;
   text-align: left;
-  /*box-shadow: 1px 1px 6px #ecf0f0;*/
 }
 
 .share-button {
@@ -118,7 +110,6 @@ swiper .swiper-desc {
 .search-pancel {
   display: flex;
   flex-direction: row;
-  /*background-color: #eee;*/
   padding: 24rpx 24rpx;
 }
 
@@ -135,7 +126,6 @@ display: flex;
 padding: 24rpx 0;
 background: #fff;
 justify-content:space-around;
-/* border-bottom: 1px solid #eee; */
 }
 
 .top-item{

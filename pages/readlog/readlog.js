@@ -1,13 +1,11 @@
 /*
  * 
  * WordPres版微信小程序
- * author: jianbo
- * organization: 守望轩  www.watch-life.net
- * github:    https://github.com/iamxjb/winxin-app-watch-life.net
- * 技术支持微信号：iamxjb
- * 开源协议：MIT
+ * author: Weyooz
+ * organization: 未由时光  weyooz.cn
+ * github:    https://github.com/Weyooz/wxxcx
+ * Copyright (c) 2019 https://weyooz.cn All Rights Reserved.
  * 
- *  *Copyright (c) 2017 https://www.watch-life.net All rights reserved.
  */
 import config from '../../utils/config.js'
 var Api = require('../../utils/api.js');

@@ -1,12 +1,11 @@
 /*
  * 
  * WordPres版微信小程序
- * author: jianbo
- * organization: 守望轩  www.watch-life.net
- * github:    https://github.com/iamxjb/winxin-app-watch-life.net
- * 技术支持微信号：iamxjb
- * 开源协议：MIT
- * Copyright (c) 2017 https://www.watch-life.net All rights reserved.
+ * author: Weyooz
+ * organization: 未由时光  weyooz.cn
+ * github:    https://github.com/Weyooz/wxxcx
+ * Copyright (c) 2019 https://weyooz.cn All Rights Reserved.
+ * 
  */
 
 .list-header {
@@ -18,6 +17,7 @@
   color: #21759b;
   border-bottom: 2rpx solid #ededed;
   margin-bottom: 48rpx;
+
 }
 
 /*topic list*/
@@ -26,26 +26,23 @@
 
 .topic-list-item {
   position: relative;
-  /* border-bottom: 1px solid #eee;   */
   overflow: hidden;
   clear: both;
-  /* border: 1px solid #ccc; *//* border-radius: 6px; 
-  margin-bottom: 30rpx;*/
   background: #fff;
+
 }
 
 .topic-list-item  image.cover {
   width: 100%;
   height: 200rpx;
-  /*filter: blur(4px);*/
+
 }
 
 
 .log-list {
   display: flex;
   flex-direction: column;
-  /*padding: 32rpx 0;
-   margin-top: 5rpx; */
+
 }
 
 .log-items {
