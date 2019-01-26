@@ -17,6 +17,10 @@
 
 -----这还是一条分割线-----
 
+项目地址（国内推荐第二个）:<br>
+Github:https://github.com/weyooz/wxxcx <br>
+Gitee：https://gitee.com/weyooz/wxxcx
+
 小程序截图:https://weyooz.cn/notice/606.html <br>
 使用说明：https://weyooz.cn/xcx/873.html <br>
 小程序体验:<br>![image](https://cdn.weyooz.cn/wp-content/uploads/gh_6e51asmall.jpg)
