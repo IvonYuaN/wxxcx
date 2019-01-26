@@ -19,7 +19,7 @@
 
 项目地址（国内推荐第二个）:<br>
 Github:https://github.com/weyooz/wxxcx <br>
-Gitee：https://gitee.com/weyooz/wxxcx
+Gitee:https://gitee.com/weyooz/wxxcx
 
 小程序截图:https://weyooz.cn/notice/606.html <br>
 使用说明：https://weyooz.cn/xcx/873.html <br>
