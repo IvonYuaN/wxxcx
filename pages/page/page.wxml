@@ -1,0 +1,24 @@
+<!--
+/*
+ * 
+ * WordPres版微信小程序
+ * author: Weyooz
+ * organization: 未由时光  weyooz.cn
+ * github:    https://github.com/Weyooz/wxxcx
+ * Copyright (c) 2019 https://weyooz.cn All Rights Reserved.
+ * 
+ */-->
+<import src="../../wxParse/wxParse.wxml"/>
+<import src="../../templates/header.wxml"/> 
+<view class="container">
+  
+    <template is="tempHeader"/>
+    <view class="content-article ">
+                    <view class="entry-title">
+                   {{pageData.title.rendered}}
+                    </view>
+                    <view class="entry-summary">
+                    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+                    </view>
+                </view>
+</view>

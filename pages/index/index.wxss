@@ -1,0 +1,205 @@
+/*
+ * 
+ * WordPres版微信小程序
+ * author: Weyooz
+ * organization: 未由时光  weyooz.cn
+ * github:    https://github.com/Weyooz/wxxcx
+ * Copyright (c) 2019 https://weyooz.cn All Rights Reserved.
+ * 
+ */
+
+.index-container {
+  background-color: #fff;
+}
+
+.index-header {
+  margin-top: 140rpx;
+  text-align: center;
+  font-weight: normal;
+  font-size: 30rpx;
+  line-height: 40rpx;
+}
+
+/*   index   swiper  */
+
+swiper.index-swiper {
+  position: relative;
+  height: 420rpx;
+}
+
+swiper .swiper-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 90%;
+}
+
+swiper image {
+  display: block;
+  margin: 0 auto;
+  border-radius: 10rpx;
+  width: 90%;
+  height: 95%;
+}
+
+swiper .swiper-desc {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 90%;
+  color: #fff;
+  line-height: 150rpx;
+  margin: 0 auto;
+  font-weight: 700;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 26rpx;
+
+}
+
+/*   index   swiper  end  */
+
+.search-button {
+  border-left: 0 !important;
+  border-top: 1px solid #eee !important;
+  border-right: 1px solid #eee !important;
+  border-bottom: 1px solid #eee !important;
+  background-color: #fff !important;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+  color: #296fd0 !important;
+  width: 30%;
+  margin: 0 !important;
+
+}
+
+.search-button icon {
+  position: absolute;
+  color:#959595;
+  margin: 26rpx 26rpx;
+}
+
+.search-input {
+  background-color: #fff;
+  padding: 18rpx 0 18rpx 32rpx;
+  min-height: 1rem;
+  font-size: 26rpx;
+  border-bottom-left-radius: 10rpx;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border: 1px solid #eee;
+  border-right: 0 !important;
+  height: 48rpx;
+  width: 70%;
+  text-align: left;
+}
+
+.share-button {
+  border: 1px solid #eee !important;
+  color: #296fd0 !important;
+  left: 10rpx;
+  height: 100rpx;
+  width: 200rpx;
+}
+
+.search-pancel {
+  display: flex;
+  flex-direction: row;
+  padding: 20rpx 40rpx;
+}
+
+.search-pancel image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 10rpx;
+  vertical-align: middle;
+}
+
+/*
+.top-Nav{
+display: flex;
+padding: 24rpx 0;
+background: #fff;
+justify-content:space-around;
+}
+
+.top-item{
+text-align: center;
+}
+
+.top-item image{
+width: 88rpx;
+height: 88rpx;
+}
+
+.top-item text{
+line-height: 20rpx;
+font-size: 28rpx;
+color: #666;
+font-weight: 500;
+}
+
+
+.share-button{
+  opacity: 0; 
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  top:0;
+  left: 0;
+}
+*/
+
+
+.top-Nav2 {
+  display: flex;
+  flex-direction: row;
+  padding: 40rpx;
+  background: #fff;
+  justify-content: space-between;
+  border-bottom: 10rpx;
+}
+
+.top-Nav2-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 320rpx;
+  height: 160rpx;
+  border-radius: 10rpx;
+  background-image: url(https://cdn.weyooz.cn/wp-content/uploads/xcx-bg.png);
+  background-size:100%;
+}
+
+.top-Nav2-item2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 320rpx;
+  height: 160rpx;
+  border-radius: 10rpx;
+  background-image: url(https://cdn.weyooz.cn/wp-content/uploads/xcx-bg2.png);
+  background-size:100%;
+}
+
+.top-Nav2-item-word {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 20rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+  color: #fff;
+  height: 60rpx;
+  width: 200rpx;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 5rpx;
+}

@@ -1,0 +1,137 @@
+/*
+ * 
+ * WordPres版微信小程序
+ * author: Weyooz
+ * organization: 未由时光  weyooz.cn
+ * github:    https://github.com/Weyooz/wxxcx
+ * Copyright (c) 2019 https://weyooz.cn All Rights Reserved.
+ * 
+ */
+
+@import "../../wxParse/wxParse.wxss";
+ .wrapper{
+  padding: 5rpx;
+}
+
+.excerpt{
+  color:#626262; 
+  font-size:26rpx;
+  line-height:48rpx;
+  text-align: left;
+}
+
+.h2{
+  clear:both;
+  border-width:1px 0;
+  color:#666;
+  text-align: center; 
+  font-size:22rpx;
+  line-height:64rpx;
+  font-weight: bold;
+}
+
+.clearfix{
+  margin:5px 15px;
+  display:inline-block;
+}
+
+.wxParse-a{
+    color: #21759b
+}
+
+.wxParse-p{
+    margin-top: 0.8em;
+    margin-bottom: 0.8em
+}
+
+.wxParse-p image{
+    margin: 0 auto;
+    width: 100% !important;
+}
+
+.praisePost
+{
+  position: relative;
+  text-align: left;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  
+}
+
+.praiseTitle
+{
+  text-align: center;
+  font-weight: normal;  
+  line-height: 40rpx;  
+  margin-top: 50rpx;
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+  color:#959595 !important;
+  vertical-align:middle;  
+  height:70rpx;
+  border-radius: 30rpx;
+  
+}
+.praiseText
+{
+  text-align: center;
+  font-weight: normal;
+  font-size: 26rpx;
+  line-height: 50rpx;
+  color:#21759b!important;
+  margin-bottom: 20rpx;
+  
+}
+
+.img-like{
+width:50rpx;
+height:50rpx;
+display: inline-block;
+text-align: center;
+margin-right:20rpx;
+margin-top:8rpx;
+}
+
+
+.gravatarLikeImg {
+  margin-top: 4px;
+  border-radius: 50%;
+  height: 60rpx;
+  width: 60rpx;
+  margin-right:20rpx;
+}
+
+.praise-button {
+  font-size: 24rpx;
+  font-weight: 1.2;
+  color:  #fff;
+  background-color: #f85959;
+  background-repeat: repeat-x;
+  margin-top: 26rpx;
+  padding-top: 12rpx;
+  width: 240rpx;
+  height: 80rpx;
+  border-radius: 10rpx;
+}
+
+.praise-button::after{
+  border:none;
+}
+
+.gotowebpage-button {
+  font-size: 24rpx;
+  font-weight: normal;
+  color:  #fff;
+  background-color: rgba(36,185,181,1);
+  background-repeat: repeat-x;
+  line-height: 1.2;
+  margin-top: 48rpx;
+  padding-top: 24rpx;
+  width: 240rpx;
+  height: 80rpx;
+  border-radius: 10rpx;
+}
+
+.gotowebpage-button::after{
+   border: none; 
+}

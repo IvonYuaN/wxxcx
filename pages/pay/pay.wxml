@@ -1,0 +1,31 @@
+<!--
+/*
+ * 
+ * WordPres版微信小程序
+ * author: Weyooz
+ * organization: 未由时光  weyooz.cn
+ * github:    https://github.com/Weyooz/wxxcx
+ * Copyright (c) 2019 https://weyooz.cn All Rights Reserved.
+ * 
+ */-->
+<import src="../../wxParse/wxParse.wxml"/>
+<import src="../../templates/header.wxml"/>
+
+<view class="container">
+  <template is="tempHeader" /> 
+
+  <view class='title'>请选择鼓励的金额</view>
+
+  <view class="price-list">
+    <view class="item" wx:for="{{prices}}" wx:key="item" data-item="{{item}}" bindtap="selectItem">
+      <view class="price-box {{selected==item?'active':''}}">
+        <em><text class="price">{{item}}</text>  元</em> 
+      </view>
+    </view>
+  </view>
+
+ <view style="text-align: center">
+  <button class="cancel-button;margin-bottom: 40rpx" formType="submit" size="mini" bindtap="cancel">取消</button>
+ </view>
+
+</view>

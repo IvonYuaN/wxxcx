@@ -1,0 +1,20 @@
+<!--
+/*
+ * 
+ * WordPres版微信小程序
+ * author: Weyooz
+ * organization: 未由时光  weyooz.cn
+ * github:    https://github.com/Weyooz/wxxcx
+ * Copyright (c) 2019 https://weyooz.cn All Rights Reserved.
+ * 
+ */-->
+
+<template name="tempHeader">
+  <view class="header">
+    <image class="headerimg" src="../../images/logo.png" style="height:150rpx;width:150rpx"></image>
+    <view style='margin-top:10rpx'>
+      既然从未拥有自由的时光，那么皮就完事了
+    </view>
+  </view>
+</template>
+<!-- header end -->
