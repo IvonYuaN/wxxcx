@@ -9,7 +9,7 @@ Gitee:https://gitee.com/weyooz/wxxcx
 
 小程序截图:https://weyooz.cn/notice/606.html <br>
 使用说明：https://weyooz.cn/xcx/873.html <br>
-小程序体验:<br>![image](https://cdn.weyooz.cn/wp-content/uploads/xcx.jpg)
+小程序体验(图片可能被墙，请打开上面连接查看):<br>![image](https://cdn.weyooz.cn/wp-content/uploads/xcx.jpg)
 
 -----2019.03.29更新1.5.0版本-----<br>
 上传1.5.0版本至Git仓库<br>
