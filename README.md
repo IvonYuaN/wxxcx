@@ -11,6 +11,11 @@ Gitee:https://gitee.com/weyooz/wxxcx
 使用说明：https://weyooz.cn/xcx/873.html <br>
 小程序体验:<br>![image](https://cdn.weyooz.cn/wp-content/uploads/gh_6e51asmall.jpg)
 
+-----2019.03.19更新1.5.0版本-----<br>
+上传1.5.0版本至Git仓库<br>
+更新部分UI<br>
+这可能是最后一更<br>
+
 
 -----2019.01.25更新1.4.1版本-----<br>
 上传1.4.1版本至Git仓库<br>
