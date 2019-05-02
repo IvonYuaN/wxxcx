@@ -1,7 +1,7 @@
 未由时光小程序基于jianbo大佬的开源项目二次开发，源代码发布Github上供小伙伴学习交流！<br>
 小程序后端基于WordPress，配合jianbo大佬写的Rest api to miniprogram插件使用！<br>
 
------这还是一条分割线-----
+-----这是一条分割线-----
 
 项目地址:<br>
 Github:https://github.com/weyooz/wxxcx <br>
