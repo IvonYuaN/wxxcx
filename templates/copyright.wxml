@@ -1,0 +1,3 @@
+<template name="tempCopyright">
+<view> © 2019 Weyooz.cn All Rights Reserved. </view>
+</template>

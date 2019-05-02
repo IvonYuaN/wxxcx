@@ -1,0 +1,17 @@
+<!--
+/*
+ * 
+ * WordPres微信小程序
+ * author: Weyooz
+ * organization: 未由时光  weyooz.cn
+ * github:    https://github.com/weyooz/wxxcx
+ * Copyright (c) 2019 https://weyooz.cn All Rights Reserved.
+ * 
+ */-->
+<template name="tempFooter"> 
+  <view class="header">    
+    <view>
+      © 2019 未由时光 Weyooz.cn All Rights Reserved.
+    </view>
+  </view>
+</template>
