@@ -1,11 +1,11 @@
-未由时光小程序基于jianbo大佬的开源项目二次开发，源代码发布Github和Gitee上供小伙伴学习交流！<br>
+未由时光小程序基于jianbo大佬的开源项目二次开发，源代码发布Github上供小伙伴学习交流！<br>
 小程序后端基于WordPress，配合jianbo大佬写的Rest api to miniprogram插件使用！<br>
 
 -----这还是一条分割线-----
 
-项目地址（国内推荐第二个，你懂的）:<br>
+项目地址:<br>
 Github:https://github.com/weyooz/wxxcx <br>
-Gitee:https://gitee.com/weyooz/wxxcx
+Gitee:已取消Gitee（码云）分享
 
 小程序截图:https://weyooz.cn/notice/606.html <br>
 使用说明：https://weyooz.cn/xcx/873.html <br>
