@@ -8,8 +8,8 @@
 Github:https://github.com/weyooz/wxxcx <br>
 Gitee:已取消Gitee（码云）分享
 
-小程序截图:https://weyooz.cn/notice/606.html <br>
-使用说明：https://weyooz.cn/xcx/873.html <br>
+小程序截图:https://www.weyooz.cn/notice/606.html <br>
+使用说明：https://www.weyooz.cn/xcx/873.html <br>
 小程序体验:<br>![image](https://cdn.weyooz.cn/wp-content/uploads/xcx.jpg)
 
 -----2019.05.02更新1.5.52版本-----<br>
