@@ -12,13 +12,13 @@
 
 //配置域名,域名只修改此处。
 //如果wordpress没有安装在网站根目录请加上目录路径,例如："weyooz.cn/blog"
-var DOMAIN = "weyooz.cn";
+var DOMAIN = "www.weyooz.cn";
 var MINAPPTYPE="1";//小程序的类型，如果是企业小程序请填：0 ，如果是个人小程序请填：1
 var WEBSITENAME="未由时光"; //网站名称
 var ABOUTID = 648; //wordpress网站"页面"的id,注意这个"页面"是wordpress的"页面"，不是"文章"
 var PAGECOUNT='10'; //每页文章数目
 //CATEGORIESID 指定为all或者指定具体的分类id，请选择其一。
-var CATEGORIESID='7,6,2,4,12,11';  //专题页显示全部的分类
+var CATEGORIESID='7,8,11,49';  //专题页显示全部的分类
 //var CATEGORIESID = '1,1059,98,416,189,374,6,463';//指定专题页显示的分类的id
 //INDEXLISTTYPE 指定为all或者指定具体的分类id，请选择其一。
 var INDEXLISTTYPE="all"; //首页显示所有分类
@@ -31,7 +31,7 @@ var POSTERIMGURL ="../../images/logo.png"; //生成海报如果没有首图，�
 //设置downloadFile合法域名,不带https ,在中括号([])里增加域名，格式：{id=**,domain:'www.**.com'}，用英文逗号分隔。
 //此处设置的域名和小程序与小程序后台设置的downloadFile合法域名要一致。
 var DOWNLOADFILEDOMAIN = [
-    { id: 1, domain: 'weyooz.cn'}
+    { id: 1, domain: 'www.weyooz.cn'}
 
 ];
  //首页图标导航
