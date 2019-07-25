@@ -60,8 +60,8 @@
 }
 
 .content-brief {
-  padding: 0rpx 0rpx 20rpx;
-  font-size: 28rpx;
+  padding: 0rpx 0rpx 20rpx 20rpx;
+  font-size: 22rpx;
   line-height: 1.2;
   font-weight: 340;
   overflow: hidden;
