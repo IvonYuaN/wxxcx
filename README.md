@@ -11,10 +11,15 @@ Github:https://github.com/weyooz/wxxcx <br>
 使用说明：https://www.weyooz.cn/xcx/873.html <br>
 小程序体验:<br>![image](https://cdn.weyooz.cn/wp-content/uploads/xcx.jpg)
 
+-----2019.11.18更新1.6版本-----
+新增跳转小程序功能
+优化页面样式</li></ul>
+
+
 -----2019.07.25更新1.5.53版本-----<br>
 修复专题页面部分显示问题<br>
 修改我的页面部分CSS<br>
-1.5.53版本就是小修小改，随缘更新<br>
+该版本小修小改，随缘更新<br>
 
 
 -----2019.05.02更新1.5.52版本-----<br>
