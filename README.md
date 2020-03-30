@@ -11,7 +11,7 @@ Github:https://github.com/weyooz/wxxcx <br>
 使用说明：https://www.weyooz.cn/xcx/873.html <br>
 小程序体验:<br>![image](https://cdn.weyooz.cn/wp-content/uploads/xcx.jpg)
 
------2020.02.25更新1.9版本-----
+-----2020.02.25更新1.9版本-----<br>
 首页UI调整<br>
 个人中心UI调整<br>
 优化小程序跳转<br>
