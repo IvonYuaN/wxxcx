@@ -1,5 +1,5 @@
-未由时光小程序基于jianbo大佬的开源项目二次开发，源代码发布Github上供小伙伴学习交流！<br>
-小程序后端基于WordPress，配合jianbo大佬写的Rest api to miniprogram插件使用！<br>
+未由时光小程序基于jianbo大佬的开源项目<a href="https://github.com/iamxjb/winxin-app-watch-life.net" target="_blink">守望轩</a>二次开发，源代码发布Github上供小伙伴学习交流！目前已经更新到2.0版本，欢迎Fork<br>
+小程序后端基于WordPress，配合jianbo大佬写的<a href="https://github.com/iamxjb/rest-api-to-miniprogram" target="_blink">Rest api to miniprogram</a>插件使用！<br>
 未由时光小程序开源版本随缘更新！有问题欢迎联系反馈！<br>
 
 -----这是一条分割线-----
@@ -11,10 +11,16 @@ Github:https://github.com/weyooz/wxxcx <br>
 使用说明：https://www.weyooz.cn/xcx/873.html <br>
 小程序体验:<br>![image](https://cdn.weyooz.cn/wp-content/uploads/xcx.jpg)
 
------2019.11.18更新1.6版本-----
-新增跳转小程序功能
-优化页面样式</li></ul>
+-----2020.2.25更新2.0版本-----<br>
+优化小程序跳转功能<br>
+首页UI调整<br>
+个人中心UI调整<br>
+相关代码逻辑调整<br>
 
+-----2019.11.18更新1.6版本-----<br>
+新增跳转小程序功能<br>
+优化页面样式<br>
+ps.该本版未同步git欢迎fork最新版本
 
 -----2019.07.25更新1.5.53版本-----<br>
 修复专题页面部分显示问题<br>
