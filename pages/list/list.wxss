@@ -1,99 +1,42 @@
-/*
- * 
- * WordPres微信小程序
- * author: Weyooz
- * organization: 未由时光  weyooz.cn
- * github:    https://github.com/weyooz/wxxcx
- * Copyright (c) 2019 https://weyooz.cn All Rights Reserved.
- * 
- */
-
-.list-header {
-  padding: 50rpx 0;
-  text-align: left;
-  font-weight: normal;
-  font-size: 40rpx;
-  line-height: 40rpx;
-  color: #21759b;
-  border-bottom: 2rpx solid #ededed;
-  margin-bottom: 48rpx;
-}
-
-/*topic list*/
-
-.topic-common-list {
-  margin-top: 140rpx;
-  padding:12rpx 0rpx;
-  font-family: Microsoft YaHei, Helvetica, Arial, sans-serif;
-  /* padding:30rpx 30rpx; */
-}
 
 .topic-list-item {
+  margin-left:24rpx; 
+  width: 94%;
+  height: 300rpx;
+  overflow: hidden;
   position: relative;
-  /* border-bottom: 1px solid #eee;   */
-  overflow: hidden;
-  clear: both;
-  /* border: 1px solid #ccc; *//* border-radius: 6px; */
-  margin-bottom: 30rpx;
-  background: #fff;
+  border-radius: 8rpx;
 }
 
-.topic-list-item  image.cover {
-  margin: 0 40rpx;
-  width: 90%;
-  height: 375rpx;
-  border-radius: 10rpx;
-  /*filter: blur(4px);*/
-}
-
-.topic-content-title {
-  font-weight: bold;
-  padding: 16rpx 0rpx;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.cover {
+  width: 100%;
+  height: 300rpx;
+  filter: brightness(80%);
   position: absolute;
-  /* border-bottom: 1px solid #fff; */
-  z-index: 2;
-  left: 60rpx;
-  top: 80rpx;
 }
-
-.topic-content-title text {
-  font-weight: bold;
-  font-size: 48rpx;
-  line-height: 48rpx;
-  color: #fff;
-}
-
-.topic-content-title-line{
-  width: 50px;
-  padding: 16rpx 0rpx;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  position: absolute;
-  border-bottom: 1px solid #fff; 
-  z-index: 2;
-  left: 64rpx;
-  top: 140rpx;
-}
-
 
 .topic-content-brief {
-  /* padding: 0rpx 30rpx 30rpx; */
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  width: 80%;
   position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
   z-index: 2;
-  left: 60rpx;
-  top: 240rpx;
+  text-align: center;
 }
 
 .topic-content-brief text {
-  font-size: 28rpx;
-  line-height: 32rpx;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #fff;
+}
+
+/* 搜索列表 */
+
+.topic-content-title text {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.6;
   color: #fff;
 }
 

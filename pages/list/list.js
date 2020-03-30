@@ -1,12 +1,3 @@
-/*
- * 
- * WordPres微信小程序
- * author: Weyooz
- * organization: 未由时光  weyooz.cn
- * github:    https://github.com/weyooz/wxxcx
- * Copyright (c) 2019 https://weyooz.cn All Rights Reserved.
- * 
- */
 
 var Api = require('../../utils/api.js');
 var util = require('../../utils/util.js');
@@ -16,6 +7,8 @@ var wxRequest = require('../../utils/wxRequest.js')
 
 import config from '../../utils/config.js'
 var pageCount = config.getPageCount;
+var webSiteName= config.getWebsiteName;
+var domain =config.getDomain
 
 Page({
   data: {
@@ -37,6 +30,10 @@ Page({
     displaySwiper: "block",
     floatDisplay: "none",
     searchKey:"",
+    webSiteName:webSiteName,
+    domain:domain,
+    listAdsuccess:true,
+    isLoading: false
   },
   formSubmit: function (e) {
     var url = '../list/list'
@@ -48,10 +45,8 @@ Page({
     })
   },
   onShareAppMessage: function () {
-
-    var title = "分享“守望轩”";
+    var title = "分享“"+webSiteName+"”";
     var path =""
-
     if (this.data.categories && this.data.categories != 0)
   {
       title += "的专题：" + this.data.categoriesList.name;
@@ -77,7 +72,6 @@ Page({
     }
   },
   onReachBottom: function () {
-
       var self = this;
       if (!self.data.isLastPage) {
           self.setData({
@@ -97,7 +91,6 @@ Page({
     if (self.data.categories && self.data.categories != 0) {
       
       self.setData({
-       // categories: options.categoryID,
         isCategoryPage: "block",
         showallDisplay: "none",
         showerror: "none",
@@ -107,7 +100,6 @@ Page({
     }
     if (self.data.search && self.data.search != '') {
       self.setData({
-        //search: options.search,
         isSearchPage: "block",
         showallDisplay: "none",
         showerror: "none",
@@ -136,21 +128,19 @@ Page({
   },
   onLoad: function (options) {
     var self = this;
+    // 设置插屏广告
+    this.setInterstitialAd();
     if (options.categoryID && options.categoryID != 0) {
       self.setData({
         categories: options.categoryID,
-        isCategoryPage:"block"
-        
+        isCategoryPage:"block"        
        
       });
       self.fetchCategoriesData(options.categoryID);
     }
     if (options.search && options.search != '') {
       wx.setNavigationBarTitle({
-        title: "搜索关键字："+options.search,
-        success: function (res) {
-          // success
-        }
+        title: "搜索"
       });
       self.setData({
         search: options.search,
@@ -159,6 +149,8 @@ Page({
       })
 
       this.fetchPostsData(self.data);
+       
+    
     }    
   },
   //获取文章列表数据
@@ -173,20 +165,15 @@ Page({
         postsList: []
       });
     };
-    
-    wx.showLoading({
-      title: '正在加载',
-      mask:true
-    });
-
+    self.setData({ isLoading: true })
     var getPostsRequest = wxRequest.getRequest(Api.getPosts(data));
-
     getPostsRequest.then(response =>{
 
         if (response.statusCode === 200) {
             if (response.data.length < pageCount) {
                 self.setData({
-                    isLastPage: true
+                    isLastPage: true,
+                    isLoading: false
                 });
             };
             self.setData({
@@ -203,7 +190,7 @@ Page({
                     }
 
                     if (item.post_thumbnail_image == null || item.post_thumbnail_image == '') {
-                        item.post_thumbnail_image = '../../images/logo700.png';
+                        item.post_thumbnail_image = '../../images/logo.png';
                     }
                     item.date = util.cutstr(strdate, 10, 1);
                     return item;
@@ -222,7 +209,8 @@ Page({
             if (response.data.code == "rest_post_invalid_page_number") {
 
                 self.setData({
-                    isLastPage: true
+                    isLastPage: true,
+                    isLoading: false
                 });
 
             }
@@ -260,6 +248,7 @@ Page({
     })
         .finally(function () {
             wx.hideLoading();
+            self.setData({ isLoading: false })
 
         })  
   },  
@@ -289,7 +278,7 @@ Page({
 
         var catImage = "";
         if (typeof (response.data.category_thumbnail_image) == "undefined" || response.data.category_thumbnail_image == "") {
-            catImage = "../../images/website.png";
+          catImage = "https://cdn.weyooz.cn/wp-content/uploads/website.png";
         }
         else {
             catImage = response.data.category_thumbnail_image;
@@ -310,6 +299,39 @@ Page({
 
         self.fetchPostsData(self.data); 
 
+    })
+  },
+  adbinderror:function(e)
+  {
+    var self=this;
+    console.log(e.detail.errCode);
+    console.log(e.detail.errMsg);    
+    if (e.detail.errCode) {
+      self.setData({
+        listAdsuccess: false
+      })
+    }
+
+  },
+  // 获取小程序插屏广告
+  setInterstitialAd: function () {
+    var getOptionsRequest = wxRequest.getRequest(Api.getOptions());
+    getOptionsRequest.then(res => {
+      // 获取广告id，创建插屏广告组件
+      if(res.interstitialAdId =="") return;
+      let interstitialAd = wx.createInterstitialAd({
+        adUnitId: res.data.interstitialAdId
+      })
+      // 监听插屏错误事件
+      interstitialAd.onError((err) => {
+        console.error(err)
+      })
+      // 显示广告
+      if (interstitialAd) {
+        interstitialAd.show().catch((err) => {
+          console.error(err)
+        })
+      }
     })
   },
 

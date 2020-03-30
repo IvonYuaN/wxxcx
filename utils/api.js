@@ -1,19 +1,9 @@
-/*
- * 
- * WordPres微信小程序
- * author: Weyooz
- * organization: 未由时光  weyooz.cn
- * github:    https://github.com/weyooz/wxxcx
- * Copyright (c) 2019 https://weyooz.cn All Rights Reserved.
- * 
- */
-
 
 import config from 'config.js';
 var domain = config.getDomain;
 var pageCount = config.getPageCount;
 var categoriesID = config.getCategoriesID;
-var indexListType = config.getIndexListType;
+
 var HOST_URI = 'https://' + domain+'/wp-json/wp/v2/';
 var HOST_URI_WATCH_LIFE_JSON = 'https://' + domain + '/wp-json/watch-life-net/v1/';
    
@@ -28,12 +18,7 @@ module.exports = {
     else if (obj.search != '') {
       url += '&search=' + encodeURIComponent(obj.search);
     }
-    else{
-        if (indexListType !='all')
-        {
-            url += '&categories=' + indexListType;
-        }
-    }     
+        
     return url;
 
   },
@@ -63,6 +48,15 @@ module.exports = {
       url += 'options/enableComment';
       return url;
   },
+
+   //获取设置项
+   getOptions: function () {
+    var url = HOST_URI_WATCH_LIFE_JSON;
+    url += 'options';
+    return url;
+},
+
+
 
   // 获取tag相关的文章列表
   getPostsByTags: function (id,tags) {
@@ -103,15 +97,15 @@ module.exports = {
     return HOST_URI + 'pages/' + id;
   },
   //获取分类列表
-  getCategories: function () {
+  getCategories: function (ids,openid) {
       var url ='';
-      if (categoriesID =='all'){
+      if (ids ==''){
           
-          url = HOST_URI + 'categories?per_page=100&orderby=count&order=desc';
+          url = HOST_URI + 'categories?per_page=100&orderby=count&order=desc&openid='+openid;
       }
       else
       {
-          url = HOST_URI + 'categories?include=' + categoriesID+'&orderby=count&order=desc';
+          url = HOST_URI + 'categories?include=' + ids+'&orderby=count&order=desc&openid='+openid;
  
       }
    
@@ -311,5 +305,17 @@ module.exports = {
   getPosterQrcodeUrl() {
       var url = 'https://' + domain + "/wp-content/plugins/rest-api-to-miniprogram/qrcode/";
       return url;
+  },
+  getAboutPage(){
+    var url = HOST_URI_WATCH_LIFE_JSON;
+      url += "post/about";
+      return url;
+
+  },
+  getCategoriesIds(){
+    var url = HOST_URI_WATCH_LIFE_JSON;
+      url += "category/ids";
+      return url;
+
   }
 };

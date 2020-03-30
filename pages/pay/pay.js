@@ -1,12 +1,4 @@
-/*
- * 
- * WordPres微信小程序
- * author: Weyooz
- * organization: 未由时光  weyooz.cn
- * github:    https://github.com/weyooz/wxxcx
- * Copyright (c) 2019 https://weyooz.cn All Rights Reserved.
- * 
- */
+
 
 var Api = require('../../utils/api.js');
 var util = require('../../utils/util.js');
@@ -16,7 +8,11 @@ var wxApi = require('../../utils/wxApi.js');
 var wxRequest = require('../../utils/wxRequest.js');
 import config from '../../utils/config.js'
 
+var webSiteName= config.getWebsiteName;
+var domain =config.getDomain
+
 var app = getApp();
+var praiseWord="鼓励";
 Page({
   data: {    
     prices: [
@@ -26,7 +22,9 @@ Page({
     postid:'',
     total_fee:'',
     template_id: config.getPayTemplateId,
-    flag:'1'
+    flag:'1',
+    webSiteName:webSiteName,
+    domain:domain
   },
 
   /**
@@ -39,11 +37,13 @@ Page({
     var openid = options.openid;
     var postid = options.postid;
     var flag = options.flag;
+    praiseWord=options.praiseWord;
 
     that.setData({
       openid: openid,
       postid: postid,
-      flag:flag
+      flag:flag,
+      praiseWord:praiseWord
         });
 
   },
@@ -94,7 +94,7 @@ Page({
                 })
               .then(res => {
                   wx.showToast({
-                    title: '谢谢鼓励！',
+                    title: '谢谢'+praiseWord+'！',
                     duration: 2000,
                     success: function () {
                         data =
@@ -107,22 +107,22 @@ Page({
                                 flag: that.data.flag,
                                 fromUser: "None"
                             };
-                        url = Api.sendMessagesUrl();
-                        var sendMessageRequest = wxRequest.postRequest(url, data);
-                        sendMessageRequest.then(response => {
-                            if (response.data.status == '200') {
-                                console.log(response.data.message);
-                                wx.navigateBack({
-                                    delta: 1
-                                })
+                        // url = Api.sendMessagesUrl();
+                        // var sendMessageRequest = wxRequest.postRequest(url, data);
+                        // sendMessageRequest.then(response => {
+                        //     if (response.data.status == '200') {
+                        //         console.log(response.data.message);
+                        //         wx.navigateBack({
+                        //             delta: 1
+                        //         })
 
-                            }
-                            else {
-                                console.log(response.data.message);
+                        //     }
+                        //     else {
+                        //         console.log(response.data.message);
 
-                            }
+                        //     }
 
-                        });
+                        // });
 
                     }
                   });
@@ -140,7 +140,7 @@ Page({
               if (res.errMsg =='requestPayment:fail cancel')
               {
                 wx.showToast({
-                  title: '取消鼓励',
+                  title: '取消'+praiseWord,
                   icon: 'success'
                 });
               }

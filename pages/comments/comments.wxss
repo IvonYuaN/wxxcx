@@ -1,12 +1,3 @@
-/*
- * 
- * WordPres微信小程序
- * author: Weyooz
- * organization: 未由时光  weyooz.cn
- * github:    https://github.com/weyooz/wxxcx
- * Copyright (c) 2019 https://weyooz.cn All Rights Reserved.
- * 
- */
 
 .list-header {
   padding: 50rpx 0;
@@ -25,11 +16,9 @@
 
 .topic-list-item {
   position: relative;
-  /* border-bottom: 1px solid #eee;   */
   overflow: hidden;
   clear: both;
-  /* border: 1px solid #ccc; *//* border-radius: 6px; 
-  margin-bottom: 30rpx;*/
+ 
   background: #fff;
 }
 
@@ -43,17 +32,16 @@
 .log-list {
   display: flex;
   flex-direction: column;
-  /*padding: 32rpx 0;
-   margin-top: 5rpx; */
+
 }
 
 .log-items {
-  margin-top: 20rpx;
+  margin-top: 15rpx;
 }
 
 .log-text {
   margin: 32rpx 0;
-  font-size: 30rpx;
+  font-size: 28rpx;
   color: #757575;
   text-align: left;
   word-wrap:break-word;

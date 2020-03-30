@@ -1,12 +1,3 @@
-/*
- * 
- * WordPres微信小程序
- * author: Weyooz
- * organization: 未由时光  weyooz.cn
- * github:    https://github.com/weyooz/wxxcx
- * Copyright (c) 2019 https://weyooz.cn All Rights Reserved.
- * 
- */
 
 var Api = require('../../utils/api.js');
 var util = require('../../utils/util.js');
@@ -16,6 +7,9 @@ var wxRequest = require('../../utils/wxRequest.js')
 var Auth = require('../../utils/auth.js');
 import config from '../../utils/config.js'
 var app = getApp();
+
+var webSiteName=config.getWebsiteName;
+var domain =config.getDomain
 
 
 Page({
@@ -34,21 +28,17 @@ Page({
     userInfo: {},
     isLoginPopup: false,
     openid:"",
-    system:""
+    system:"",
+    webSiteName:webSiteName,
+    domain:domain
    
     
   },
   onLoad: function (options) {
-    var self = this;
-    wx.setNavigationBarTitle({
-      title: '关于未由时光微信小程序',
-      success: function (res) {
-        // success
-      }
-    });
+    var self = this;    
     Auth.setUserInfoData(self); 
     Auth.checkLogin(self);
-    this.fetchData(config.getAboutId);
+    this.fetchData();
     wx.getSystemInfo({
           success: function (t) {
           var system = t.system.indexOf('iOS') != -1 ? 'iOS' : 'Android';
@@ -60,19 +50,21 @@ Page({
   praise: function () {     
       
       var self = this;
-      var minAppType = config.getMinAppType;
+      var enterpriseMinapp = self.data.pageData.enterpriseMinapp;
       var system  =self.data.system;
-      if (minAppType == "0"  && system=='Android') {
+      var praiseWord=self.data.pageData.praiseWord;
+      var postid=self.data.pageData.id;
+      if (enterpriseMinapp == "1"  && system=='Android') {
           if (self.data.openid) {
               wx.navigateTo({
-                  url: '../pay/pay?flag=2&openid=' + self.data.openid + '&postid=' + config.getAboutId
+                  url: '../pay/pay?flag=2&openid=' + self.data.openid + '&postid=' + postid +'&praiseWord='+praiseWord
               })
           }
           else {
                 Auth.checkSession(self,'isLoginNow');
             }
       }
-      else {
+      else if(enterpriseMinapp == "0" || system=='iOS') {
 
           var src = config.getZanImageUrl;
           wx.previewImage({
@@ -91,7 +83,7 @@ Page({
 
       });
 
-      this.fetchData(config.getAboutId);
+      this.fetchData();
       //消除下刷新出现空白矩形的问题。
       wx.stopPullDownRefresh()
 
@@ -111,9 +103,9 @@ Page({
   gotowebpage:function()
   {
       var self=this;
-      var minAppType = config.getMinAppType;
+      var enterpriseMinapp = self.data.pageData.enterpriseMinapp;
       var url = '';
-      if (minAppType == "0") {
+      if (enterpriseMinapp == "1") {
           url = '../webpage/webpage?';
           wx.navigateTo({
               url: url
@@ -200,15 +192,9 @@ Page({
 
   },
   agreeGetUser: function (e) {
-      var userInfo = e.detail.userInfo;
-      var self = this;
-      if (userInfo) {
-          auth.getUsreInfo(e.detail);
-          self.setData({ userInfo: userInfo });
-      }
-      setTimeout(function () {
-          self.setData({ isLoginPopup: false })
-      }, 1200);
+  
+    let self= this;
+    Auth.checkAgreeGetUser(e,app,self,'0');;
   },
   closeLoginPopup() {
       this.setData({ isLoginPopup: false });
@@ -217,18 +203,22 @@ Page({
       this.setData({ isLoginPopup: true });
   }
     ,
-  fetchData: function (id) {
+  fetchData: function () {
     var self = this; 
-    var getPageRequest = wxRequest.getRequest(Api.getPageByID(id));
+    var getPageRequest = wxRequest.getRequest(Api.getAboutPage());
     getPageRequest.then(response =>{
         console.log(response);
-        WxParse.wxParse('article', 'html', response.data.content.rendered, self, 5);
+        wx.setNavigationBarTitle({
+            title: response.data.post_title,
+            success: function (res) {
+              // success
+            }
+          });
+        WxParse.wxParse('article', 'html', response.data.post_content, self, 5);
 
         self.setData({
             pageData: response.data,
-            // wxParseData: WxParse('md',response.data.content.rendered)
-            //wxParseData: WxParse.wxParse('article', 'html', response.data.content.rendered, self, 5)
-        });
+              });
         self.setData({
             display: 'block'
         });
@@ -265,7 +255,7 @@ Page({
     })    
     .then(res =>{
         if (!app.globalData.isGetOpenid) {
-           // auth.getUsreInfo();
+           
         }
 
     })

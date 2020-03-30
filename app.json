@@ -12,45 +12,40 @@
         "pages/pay/pay",
         "pages/webpage/webpage",
         "pages/comments/comments",
-        "pages/poster/poster"
+        "pages/poster/poster",
+        "pages/search/search"
+        
     ],
     "window": {
         "backgroundTextStyle": "dark",
-        "navigationBarBackgroundColor": "#118fff",
+        "navigationBarBackgroundColor": "#fff",
         "navigationBarTitleText": "未由时光",
-        "navigationStyle": "custom",
-        "navigationBarTextStyle": "black",
-        "qbDebugKey":"77df1887043be39f8d5623d9bc887b31"
+        "navigationBarTextStyle": "black",        
+        "pageOrientation": "auto"
     },
     "tabBar": {
-        "color": "#9BABBA",
-        "selectedColor": "#495056",
+        "color": "#959595",
+        "selectedColor": "#118fff",
         "borderStyle": "white",
-        "backgroundColor": "#fff",
+        "backgroundColor": "#ffffff",
         "list": [
             {
                 "pagePath": "pages/index/index",
-                "iconPath": "images/tar-home.png",
-                "selectedIconPath": "images/tar-home-on.png",
+                "iconPath": "images/tab-home.png",
+                "selectedIconPath": "images/tab-home-on.png",
                 "text": "首页"
             },
             {
                 "pagePath": "pages/topic/topic",
-                "iconPath": "images/tar-topic.png",
-                "selectedIconPath": "images/tar-topic-on.png",
+                "iconPath": "images/tab-topic.png",
+                "selectedIconPath": "images/tab-topic-on.png",
                 "text": "专题"
             },
             {
                 "pagePath": "pages/readlog/readlog",
-                "iconPath": "images/tar-person.png",
-                "selectedIconPath": "images/tar-person-on.png",
+                "iconPath": "images/tab-my.png",
+                "selectedIconPath": "images/tab-my-on.png",
                 "text": "我的"
-            },
-            {
-                "pagePath": "pages/about/about",
-                "iconPath": "images/tar-about.png",
-                "selectedIconPath": "images/tar-about-on.png",
-                "text": "关于"
             }
         ]
     },
@@ -60,14 +55,9 @@
         "uploadFile": 10000,
         "downloadFile": 10000
     },
-    "navigateToMiniProgramAppIdList":
-    [
-         
-        "wxa43aaa8416cdbd61",
-        "wxe9440e3d24b04152",
-        "wx39075d0bde24f9f7",
-        "wxc1771b619b83316b",
-        "wx074a216a7aabc30c",
-        "wx55ea6098e41af5c4"
-    ]
+    "navigateToMiniProgramAppIdList": [
+        "wxd72e68ae9ce697dd"
+    ],
+    "sitemapLocation": "sitemap.json",
+    "resizable":false
 }

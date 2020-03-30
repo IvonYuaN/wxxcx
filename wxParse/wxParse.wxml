@@ -1,7 +1,7 @@
 <!--**
  * author: Di (微信小程序开发工程师)
- * organization: WeAppDev(微信小程序开发论坛)(http://weappdev.com)
- *               垂直微信小程序开发交流社区
+ * organization: WeAppDev(微信小程序开发)(http://weappdev.com)
+ *               垂直微信小程序开发
  * 
  * github地址: https://github.com/icindy/wxParse
  * 
@@ -23,13 +23,13 @@
   </view>
 </template>
 <template name="wxParseImg">
-  <image class="{{item.classStr}} wxParse-{{item.tag}}" data-from="{{item.from}}" data-src="{{item.attr.src}}" data-idx="{{item.imgIndex}}" src="{{item.attr.src}}" mode="aspectFit" bindload="wxParseImgLoad" bindtap="wxParseImgTap" mode="widthFix" style="width:{{item.width}}px;"
+  <image class="{{item.classStr}} wxParse-{{item.tag}}" show-menu-by-longpress="true" lazy-load="true" data-from="{{item.from}}" data-src="{{item.attr.src}}" data-idx="{{item.imgIndex}}" src="{{item.attr.src}}" bindload="wxParseImgLoad" bindtap="wxParseImgTap" mode="widthFix" style="width:100%;"
   />
 </template>
 <!--33行加入text组件，用于复制文字-->
 <template name="WxEmojiView">
   <view class="WxEmojiView wxParse-inline" style="{{item.styleStr}}">
-    <block wx:for="{{item.textArray}}" wx:key="">
+    <block wx:for="{{item.textArray}}" wx:key="index">
       <block class="{{item.text == '\\n' ? 'wxParse-hide':''}}" wx:if="{{item.node == 'text'}}"><text selectable="{{true}}">{{item.text}}</text></block>
       <block wx:elif="{{item.node == 'element'}}">
         <image class="wxEmoji" src="{{item.baseSrc}}{{item.text}}" />
@@ -41,10 +41,14 @@
 <template name="WxParseBr">
   <text>\n</text>
 </template>
+
+<template name="wxParseStyle">
+  <text></text>
+</template>
 <!--入口模版-->
 
 <template name="wxParse">
-  <block wx:for="{{wxParseData}}" wx:key="">
+  <block wx:for="{{wxParseData}}" wx:key="index">
     <template is="wxParse0" data="{{item}}" />
   </block>
 </template>
@@ -57,7 +61,7 @@
   <block wx:if="{{item.node == 'element'}}">
     <block wx:if="{{item.tag == 'button'}}">
       <button type="default" size="mini">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse1" data="{{item}}" />
         </block>
       </button>
@@ -70,7 +74,7 @@
             <view class="{{item.classStr}} wxParse-li-circle"></view>
           </view>
           <view class="{{item.classStr}} wxParse-li-text">
-            <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+            <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
               <template is="wxParse1" data="{{item}}" />
             </block>
           </view>
@@ -84,38 +88,60 @@
     </block>
 
     <!--audio类型-->
-    <block wx:elif="{{item.tag == 'audio'}}">
+    <!-- <block wx:elif="{{item.tag == 'audio'}}">
       <template is="wxParseAudio" data="{{item}}" />
-    </block>
+    </block> -->
 
     <!--img类型-->
     <block wx:elif="{{item.tag == 'img'}}">
       <template is="wxParseImg" data="{{item}}" />
     </block>
 
+     <!--style类型-->
+    <block wx:elif="{{item.tag == 'style'}}">
+      <template is="wxParseStyle" data="{{item}}" />
+    </block>
+
     <!--a类型-->
     <block wx:elif="{{item.tag == 'a'}}">
       <view bindtap="wxParseTagATap" class="wxParse-inline {{item.classStr}} wxParse-{{item.tag}}" data-src="{{item.attr.href}}" style="{{item.styleStr}}">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse1" data="{{item}}" />
         </block>
       </view>
     </block>
     <block wx:elif="{{item.tag == 'table'}}">
       <view class="{{item.classStr}} wxParse-{{item.tag}}" style="{{item.styleStr}}">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse1" data="{{item}}" />
         </block>
       </view>
     </block>
-
+    <!-- 112至127行加入pre code支持 -->
+    <!-- pre 类型 -->
+    <block wx:elif="{{item.tag == 'pre'}}">
+      <view class="{{item.classStr}} wxParser-{{item.tag}}" style="{{item.styleStr}}">
+        <block  wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
+          <template is="wxParse1" data="{{item}}"/>
+        </block>
+      </view>
+    </block>
+     <!-- code 类型 -->
+    <block wx:elif="{{item.tag == 'code'}}">
+      <view class="{{item.classStr}} wxParser-{{item.tag}}" style="{{item.styleStr}}">
+        <block  wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
+          <template is="wxParse1" data="{{item}}"/>
+        </block>
+      </view>
+    </block>
+    <!-- 112至127行加入pre code支持 -->
     <block wx:elif="{{item.tag == 'br'}}">
       <template is="WxParseBr"></template>
     </block>
     <!--其他块级标签-->
     <block wx:elif="{{item.tagType == 'block'}}">
       <view class="{{item.classStr}} wxParse-{{item.tag}}" style="{{item.styleStr}}">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse1" data="{{item}}" />
         </block>
       </view>
@@ -123,7 +149,7 @@
 
     <!--内联标签-->
     <view wx:else class="{{item.classStr}} wxParse-{{item.tag}} wxParse-{{item.tagType}}" style="{{item.styleStr}}">
-      <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+      <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
         <template is="wxParse1" data="{{item}}" />
       </block>
     </view>
@@ -147,7 +173,7 @@
   <block wx:if="{{item.node == 'element'}}">
     <block wx:if="{{item.tag == 'button'}}">
       <button type="default" size="mini">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse2" data="{{item}}" />
         </block>
       </button>
@@ -160,7 +186,7 @@
             <view class="{{item.classStr}} wxParse-li-circle"></view>
           </view>
           <view class="{{item.classStr}} wxParse-li-text">
-            <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+            <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
               <template is="wxParse2" data="{{item}}" />
             </block>
           </view>
@@ -174,19 +200,24 @@
     </block>
 
     <!--audio类型-->
-    <block wx:elif="{{item.tag == 'audio'}}">
+    <!-- <block wx:elif="{{item.tag == 'audio'}}">
       <template is="wxParseAudio" data="{{item}}" />
-    </block>
+    </block> -->
 
     <!--img类型-->
     <block wx:elif="{{item.tag == 'img'}}">
       <template is="wxParseImg" data="{{item}}" />
     </block>
 
+     <!--style类型-->
+    <block wx:elif="{{item.tag == 'style'}}">
+      <template is="wxParseStyle" data="{{item}}" />
+    </block>
+
     <!--a类型-->
     <block wx:elif="{{item.tag == 'a'}}">
       <view bindtap="wxParseTagATap" class="wxParse-inline {{item.classStr}} wxParse-{{item.tag}}" data-src="{{item.attr.href}}" style="{{item.styleStr}}">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse2" data="{{item}}" />
         </block>
       </view>
@@ -198,7 +229,7 @@
     <!--其他块级标签-->
     <block wx:elif="{{item.tagType == 'block'}}">
       <view class="{{item.classStr}} wxParse-{{item.tag}}" style="{{item.styleStr}}">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse2" data="{{item}}" />
         </block>
       </view>
@@ -206,7 +237,7 @@
 
     <!--内联标签-->
     <view wx:else class="{{item.classStr}} wxParse-{{item.tag}} wxParse-{{item.tagType}}" style="{{item.styleStr}}">
-      <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+      <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
         <template is="wxParse2" data="{{item}}" />
       </block>
     </view>
@@ -229,7 +260,7 @@
   <block wx:if="{{item.node == 'element'}}">
     <block wx:if="{{item.tag == 'button'}}">
       <button type="default" size="mini">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse3" data="{{item}}" />
         </block>
       </button>
@@ -242,7 +273,7 @@
             <view class="{{item.classStr}} wxParse-li-circle"></view>
           </view>
           <view class="{{item.classStr}} wxParse-li-text">
-            <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+            <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
               <template is="wxParse3" data="{{item}}" />
             </block>
           </view>
@@ -256,19 +287,24 @@
     </block>
 
     <!--audio类型-->
-    <block wx:elif="{{item.tag == 'audio'}}">
+    <!-- <block wx:elif="{{item.tag == 'audio'}}">
       <template is="wxParseAudio" data="{{item}}" />
-    </block>
+    </block> -->
 
     <!--img类型-->
     <block wx:elif="{{item.tag == 'img'}}">
       <template is="wxParseImg" data="{{item}}" />
     </block>
 
+     <!--style类型-->
+    <block wx:elif="{{item.tag == 'style'}}">
+      <template is="wxParseStyle" data="{{item}}" />
+    </block>
+
     <!--a类型-->
     <block wx:elif="{{item.tag == 'a'}}">
       <view bindtap="wxParseTagATap" class="wxParse-inline {{item.classStr}} wxParse-{{item.tag}}" data-src="{{item.attr.href}}" style="{{item.styleStr}}">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse3" data="{{item}}" />
         </block>
       </view>
@@ -280,7 +316,7 @@
     <!--其他块级标签-->
     <block wx:elif="{{item.tagType == 'block'}}">
       <view class="{{item.classStr}} wxParse-{{item.tag}}" style="{{item.styleStr}}">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse3" data="{{item}}" />
         </block>
       </view>
@@ -288,7 +324,7 @@
 
     <!--内联标签-->
     <view wx:else class="{{item.classStr}} wxParse-{{item.tag}} wxParse-{{item.tagType}}" style="{{item.styleStr}}">
-      <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+      <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
         <template is="wxParse3" data="{{item}}" />
       </block>
     </view>
@@ -310,7 +346,7 @@
   <block wx:if="{{item.node == 'element'}}">
     <block wx:if="{{item.tag == 'button'}}">
       <button type="default" size="mini">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse4" data="{{item}}" />
         </block>
       </button>
@@ -323,7 +359,7 @@
             <view class="{{item.classStr}} wxParse-li-circle"></view>
           </view>
           <view class="{{item.classStr}} wxParse-li-text">
-            <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+            <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
               <template is="wxParse4" data="{{item}}" />
             </block>
           </view>
@@ -337,19 +373,24 @@
     </block>
 
     <!--audio类型-->
-    <block wx:elif="{{item.tag == 'audio'}}">
+    <!-- <block wx:elif="{{item.tag == 'audio'}}">
       <template is="wxParseAudio" data="{{item}}" />
-    </block>
+    </block> -->
 
     <!--img类型-->
     <block wx:elif="{{item.tag == 'img'}}">
       <template is="wxParseImg" data="{{item}}" />
     </block>
 
+     <!--style类型-->
+    <block wx:elif="{{item.tag == 'style'}}">
+      <template is="wxParseStyle" data="{{item}}" />
+    </block>
+
     <!--a类型-->
     <block wx:elif="{{item.tag == 'a'}}">
       <view bindtap="wxParseTagATap" class="wxParse-inline {{item.classStr}} wxParse-{{item.tag}}" data-src="{{item.attr.href}}" style="{{item.styleStr}}">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse4" data="{{item}}" />
         </block>
       </view>
@@ -361,7 +402,7 @@
     <!--其他块级标签-->
     <block wx:elif="{{item.tagType == 'block'}}">
       <view class="{{item.classStr}} wxParse-{{item.tag}}" style="{{item.styleStr}}">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse4" data="{{item}}" />
         </block>
       </view>
@@ -369,7 +410,7 @@
 
     <!--内联标签-->
     <view wx:else class="{{item.classStr}} wxParse-{{item.tag}} wxParse-{{item.tagType}}" style="{{item.styleStr}}">
-      <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+      <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
         <template is="wxParse4" data="{{item}}" />
       </block>
     </view>
@@ -391,7 +432,7 @@
   <block wx:if="{{item.node == 'element'}}">
     <block wx:if="{{item.tag == 'button'}}">
       <button type="default" size="mini">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse5" data="{{item}}" />
         </block>
       </button>
@@ -404,7 +445,7 @@
             <view class="{{item.classStr}} wxParse-li-circle"></view>
           </view>
           <view class="{{item.classStr}} wxParse-li-text">
-            <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+            <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
               <template is="wxParse5" data="{{item}}" />
             </block>
           </view>
@@ -418,19 +459,24 @@
     </block>
 
     <!--audio类型-->
-    <block wx:elif="{{item.tag == 'audio'}}">
+    <!-- <block wx:elif="{{item.tag == 'audio'}}">
       <template is="wxParseAudio" data="{{item}}" />
-    </block>
+    </block> -->
 
     <!--img类型-->
     <block wx:elif="{{item.tag == 'img'}}">
       <template is="wxParseImg" data="{{item}}" />
     </block>
 
+     <!--style类型-->
+    <block wx:elif="{{item.tag == 'style'}}">
+      <template is="wxParseStyle" data="{{item}}" />
+    </block>
+
     <!--a类型-->
     <block wx:elif="{{item.tag == 'a'}}">
       <view bindtap="wxParseTagATap" class="wxParse-inline {{item.classStr}} wxParse-{{item.tag}}" data-src="{{item.attr.href}}" style="{{item.styleStr}}">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse5" data="{{item}}" />
         </block>
       </view>
@@ -442,7 +488,7 @@
     <!--其他块级标签-->
     <block wx:elif="{{item.tagType == 'block'}}">
       <view class="{{item.classStr}} wxParse-{{item.tag}}" style="{{item.styleStr}}">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse5" data="{{item}}" />
         </block>
       </view>
@@ -450,7 +496,7 @@
 
     <!--内联标签-->
     <view wx:else class="{{item.classStr}} wxParse-{{item.tag}} wxParse-{{item.tagType}}" style="{{item.styleStr}}">
-      <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+      <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
         <template is="wxParse5" data="{{item}}" />
       </block>
     </view>
@@ -472,7 +518,7 @@
   <block wx:if="{{item.node == 'element'}}">
     <block wx:if="{{item.tag == 'button'}}">
       <button type="default" size="mini">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse6" data="{{item}}" />
         </block>
       </button>
@@ -485,7 +531,7 @@
             <view class="{{item.classStr}} wxParse-li-circle"></view>
           </view>
           <view class="{{item.classStr}} wxParse-li-text">
-            <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+            <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
               <template is="wxParse6" data="{{item}}" />
             </block>
           </view>
@@ -499,19 +545,24 @@
     </block>
 
     <!--audio类型-->
-    <block wx:elif="{{item.tag == 'audio'}}">
+    <!-- <block wx:elif="{{item.tag == 'audio'}}">
       <template is="wxParseAudio" data="{{item}}" />
-    </block>
+    </block> -->
 
     <!--img类型-->
     <block wx:elif="{{item.tag == 'img'}}">
       <template is="wxParseImg" data="{{item}}" />
     </block>
 
+     <!--style类型-->
+    <block wx:elif="{{item.tag == 'style'}}">
+      <template is="wxParseStyle" data="{{item}}" />
+    </block>
+
     <!--a类型-->
     <block wx:elif="{{item.tag == 'a'}}">
       <view bindtap="wxParseTagATap" class="wxParse-inline {{item.classStr}} wxParse-{{item.tag}}" data-src="{{item.attr.href}}" style="{{item.styleStr}}">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse6" data="{{item}}" />
         </block>
       </view>
@@ -523,7 +574,7 @@
     <!--其他块级标签-->
     <block wx:elif="{{item.tagType == 'block'}}">
       <view class="{{item.classStr}} wxParse-{{item.tag}}" style="{{item.styleStr}}">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse6" data="{{item}}" />
         </block>
       </view>
@@ -531,7 +582,7 @@
 
     <!--内联标签-->
     <view wx:else class="{{item.classStr}} wxParse-{{item.tag}} wxParse-{{item.tagType}}" style="{{item.styleStr}}">
-      <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+      <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
         <template is="wxParse6" data="{{item}}" />
       </block>
     </view>
@@ -553,7 +604,7 @@
   <block wx:if="{{item.node == 'element'}}">
     <block wx:if="{{item.tag == 'button'}}">
       <button type="default" size="mini">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse7" data="{{item}}" />
         </block>
       </button>
@@ -566,7 +617,7 @@
             <view class="{{item.classStr}} wxParse-li-circle"></view>
           </view>
           <view class="{{item.classStr}} wxParse-li-text">
-            <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+            <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
               <template is="wxParse7" data="{{item}}" />
             </block>
           </view>
@@ -580,19 +631,24 @@
     </block>
 
     <!--audio类型-->
-    <block wx:elif="{{item.tag == 'audio'}}">
+    <!-- <block wx:elif="{{item.tag == 'audio'}}">
       <template is="wxParseAudio" data="{{item}}" />
-    </block>
+    </block> -->
 
     <!--img类型-->
     <block wx:elif="{{item.tag == 'img'}}">
       <template is="wxParseImg" data="{{item}}" />
     </block>
 
+     <!--style类型-->
+    <block wx:elif="{{item.tag == 'style'}}">
+      <template is="wxParseStyle" data="{{item}}" />
+    </block>
+
     <!--a类型-->
     <block wx:elif="{{item.tag == 'a'}}">
       <view bindtap="wxParseTagATap" class="wxParse-inline {{item.classStr}} wxParse-{{item.tag}}" data-src="{{item.attr.href}}" style="{{item.styleStr}}">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse7" data="{{item}}" />
         </block>
       </view>
@@ -604,7 +660,7 @@
     <!--其他块级标签-->
     <block wx:elif="{{item.tagType == 'block'}}">
       <view class="{{item.classStr}} wxParse-{{item.tag}}" style="{{item.styleStr}}">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse7" data="{{item}}" />
         </block>
       </view>
@@ -612,7 +668,7 @@
 
     <!--内联标签-->
     <view wx:else class="{{item.classStr}} wxParse-{{item.tag}} wxParse-{{item.tagType}}" style="{{item.styleStr}}">
-      <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+      <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
         <template is="wxParse7" data="{{item}}" />
       </block>
     </view>
@@ -633,7 +689,7 @@
   <block wx:if="{{item.node == 'element'}}">
     <block wx:if="{{item.tag == 'button'}}">
       <button type="default" size="mini">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse8" data="{{item}}" />
         </block>
       </button>
@@ -646,7 +702,7 @@
             <view class="{{item.classStr}} wxParse-li-circle"></view>
           </view>
           <view class="{{item.classStr}} wxParse-li-text">
-            <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+            <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
               <template is="wxParse8" data="{{item}}" />
             </block>
           </view>
@@ -660,19 +716,24 @@
     </block>
 
     <!--audio类型-->
-    <block wx:elif="{{item.tag == 'audio'}}">
+    <!-- <block wx:elif="{{item.tag == 'audio'}}">
       <template is="wxParseAudio" data="{{item}}" />
-    </block>
+    </block> -->
 
     <!--img类型-->
     <block wx:elif="{{item.tag == 'img'}}">
       <template is="wxParseImg" data="{{item}}" />
     </block>
 
+     <!--style类型-->
+    <block wx:elif="{{item.tag == 'style'}}">
+      <template is="wxParseStyle" data="{{item}}" />
+    </block>
+
     <!--a类型-->
     <block wx:elif="{{item.tag == 'a'}}">
       <view bindtap="wxParseTagATap" class="wxParse-inline {{item.classStr}} wxParse-{{item.tag}}" data-src="{{item.attr.href}}" style="{{item.styleStr}}">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse8" data="{{item}}" />
         </block>
       </view>
@@ -684,7 +745,7 @@
     <!--其他块级标签-->
     <block wx:elif="{{item.tagType == 'block'}}">
       <view class="{{item.classStr}} wxParse-{{item.tag}}" style="{{item.styleStr}}">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse8" data="{{item}}" />
         </block>
       </view>
@@ -692,7 +753,7 @@
 
     <!--内联标签-->
     <view wx:else class="{{item.classStr}} wxParse-{{item.tag}} wxParse-{{item.tagType}}" style="{{item.styleStr}}">
-      <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+      <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
         <template is="wxParse8" data="{{item}}" />
       </block>
     </view>
@@ -714,7 +775,7 @@
   <block wx:if="{{item.node == 'element'}}">
     <block wx:if="{{item.tag == 'button'}}">
       <button type="default" size="mini">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse9" data="{{item}}" />
         </block>
       </button>
@@ -727,7 +788,7 @@
             <view class="{{item.classStr}} wxParse-li-circle"></view>
           </view>
           <view class="{{item.classStr}} wxParse-li-text">
-            <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+            <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
               <template is="wxParse9" data="{{item}}" />
             </block>
           </view>
@@ -741,19 +802,24 @@
     </block>
 
     <!--audio类型-->
-    <block wx:elif="{{item.tag == 'audio'}}">
+    <!-- <block wx:elif="{{item.tag == 'audio'}}">
       <template is="wxParseAudio" data="{{item}}" />
-    </block>
+    </block> -->
 
     <!--img类型-->
     <block wx:elif="{{item.tag == 'img'}}">
       <template is="wxParseImg" data="{{item}}" />
     </block>
 
+     <!--style类型-->
+    <block wx:elif="{{item.tag == 'style'}}">
+      <template is="wxParseStyle" data="{{item}}" />
+    </block>
+
     <!--a类型-->
     <block wx:elif="{{item.tag == 'a'}}">
       <view bindtap="wxParseTagATap" class="wxParse-inline {{item.classStr}} wxParse-{{item.tag}}" data-src="{{item.attr.href}}" style="{{item.styleStr}}">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse9" data="{{item}}" />
         </block>
       </view>
@@ -765,7 +831,7 @@
     <!--其他块级标签-->
     <block wx:elif="{{item.tagType == 'block'}}">
       <view class="{{item.classStr}} wxParse-{{item.tag}}" style="{{item.styleStr}}">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse9" data="{{item}}" />
         </block>
       </view>
@@ -773,7 +839,7 @@
 
     <!--内联标签-->
     <view wx:else class="{{item.classStr}} wxParse-{{item.tag}} wxParse-{{item.tagType}}" style="{{item.styleStr}}">
-      <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+      <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
         <template is="wxParse9" data="{{item}}" />
       </block>
     </view>
@@ -795,7 +861,7 @@
   <block wx:if="{{item.node == 'element'}}">
     <block wx:if="{{item.tag == 'button'}}">
       <button type="default" size="mini">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse10" data="{{item}}" />
         </block>
       </button>
@@ -808,7 +874,7 @@
             <view class="{{item.classStr}} wxParse-li-circle"></view>
           </view>
           <view class="{{item.classStr}} wxParse-li-text">
-            <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+            <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
               <template is="wxParse10" data="{{item}}" />
             </block>
           </view>
@@ -822,19 +888,24 @@
     </block>
 
     <!--audio类型-->
-    <block wx:elif="{{item.tag == 'audio'}}">
+    <!-- <block wx:elif="{{item.tag == 'audio'}}">
       <template is="wxParseAudio" data="{{item}}" />
-    </block>
+    </block> -->
 
     <!--img类型-->
     <block wx:elif="{{item.tag == 'img'}}">
       <template is="wxParseImg" data="{{item}}" />
     </block>
 
+     <!--style类型-->
+    <block wx:elif="{{item.tag == 'style'}}">
+      <template is="wxParseStyle" data="{{item}}" />
+    </block>
+
     <!--a类型-->
     <block wx:elif="{{item.tag == 'a'}}">
       <view bindtap="wxParseTagATap" class="wxParse-inline {{item.classStr}} wxParse-{{item.tag}}" data-src="{{item.attr.href}}" style="{{item.styleStr}}">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse10" data="{{item}}" />
         </block>
       </view>
@@ -846,7 +917,7 @@
     <!--其他块级标签-->
     <block wx:elif="{{item.tagType == 'block'}}">
       <view class="{{item.classStr}} wxParse-{{item.tag}}" style="{{item.styleStr}}">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse10" data="{{item}}" />
         </block>
       </view>
@@ -854,7 +925,7 @@
 
     <!--内联标签-->
     <view wx:else class="{{item.classStr}} wxParse-{{item.tag}} wxParse-{{item.tagType}}" style="{{item.styleStr}}">
-      <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+      <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
         <template is="wxParse10" data="{{item}}" />
       </block>
     </view>
@@ -876,7 +947,7 @@
   <block wx:if="{{item.node == 'element'}}">
     <block wx:if="{{item.tag == 'button'}}">
       <button type="default" size="mini">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse11" data="{{item}}" />
         </block>
       </button>
@@ -889,7 +960,7 @@
             <view class="{{item.classStr}} wxParse-li-circle"></view>
           </view>
           <view class="{{item.classStr}} wxParse-li-text">
-            <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+            <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
               <template is="wxParse11" data="{{item}}" />
             </block>
           </view>
@@ -903,19 +974,24 @@
     </block>
 
     <!--audio类型-->
-    <block wx:elif="{{item.tag == 'audio'}}">
+    <!-- <block wx:elif="{{item.tag == 'audio'}}">
       <template is="wxParseAudio" data="{{item}}" />
-    </block>
+    </block> -->
 
     <!--img类型-->
     <block wx:elif="{{item.tag == 'img'}}">
       <template is="wxParseImg" data="{{item}}" />
     </block>
 
+     <!--style类型-->
+    <block wx:elif="{{item.tag == 'style'}}">
+      <template is="wxParseStyle" data="{{item}}" />
+    </block>
+
     <!--a类型-->
     <block wx:elif="{{item.tag == 'a'}}">
       <view bindtap="wxParseTagATap" class="wxParse-inline {{item.classStr}} wxParse-{{item.tag}}" data-src="{{item.attr.href}}" style="{{item.styleStr}}">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse11" data="{{item}}" />
         </block>
       </view>
@@ -927,7 +1003,7 @@
     <!--其他块级标签-->
     <block wx:elif="{{item.tagType == 'block'}}">
       <view class="{{item.classStr}} wxParse-{{item.tag}}" style="{{item.styleStr}}">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse11" data="{{item}}" />
         </block>
       </view>
@@ -935,7 +1011,7 @@
 
     <!--内联标签-->
     <view wx:else class="{{item.classStr}} wxParse-{{item.tag}} wxParse-{{item.tagType}}" style="{{item.styleStr}}">
-      <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+      <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
         <template is="wxParse11" data="{{item}}" />
       </block>
     </view>
@@ -957,7 +1033,7 @@
   <block wx:if="{{item.node == 'element'}}">
     <block wx:if="{{item.tag == 'button'}}">
       <button type="default" size="mini">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse12" data="{{item}}" />
         </block>
       </button>
@@ -970,7 +1046,7 @@
             <view class="{{item.classStr}} wxParse-li-circle"></view>
           </view>
           <view class="{{item.classStr}} wxParse-li-text">
-            <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+            <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
               <template is="wxParse12" data="{{item}}" />
             </block>
           </view>
@@ -984,19 +1060,24 @@
     </block>
 
     <!--audio类型-->
-    <block wx:elif="{{item.tag == 'audio'}}">
+    <!-- <block wx:elif="{{item.tag == 'audio'}}">
       <template is="wxParseAudio" data="{{item}}" />
-    </block>
+    </block> -->
 
     <!--img类型-->
     <block wx:elif="{{item.tag == 'img'}}">
       <template is="wxParseImg" data="{{item}}" />
     </block>
 
+     <!--style类型-->
+    <block wx:elif="{{item.tag == 'style'}}">
+      <template is="wxParseStyle" data="{{item}}" />
+    </block>
+
     <!--a类型-->
     <block wx:elif="{{item.tag == 'a'}}">
       <view bindtap="wxParseTagATap" class="wxParse-inline {{item.classStr}} wxParse-{{item.tag}}" data-src="{{item.attr.href}}" style="{{item.styleStr}}">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse12" data="{{item}}" />
         </block>
       </view>
@@ -1008,7 +1089,7 @@
     <!--其他块级标签-->
     <block wx:elif="{{item.tagType == 'block'}}">
       <view class="{{item.classStr}} wxParse-{{item.tag}}" style="{{item.styleStr}}">
-        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+        <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
           <template is="wxParse12" data="{{item}}" />
         </block>
       </view>
@@ -1016,7 +1097,7 @@
 
     <!--内联标签-->
     <view wx:else class="{{item.classStr}} wxParse-{{item.tag}} wxParse-{{item.tagType}}" style="{{item.styleStr}}">
-      <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="">
+      <block wx:for="{{item.nodes}}" wx:for-item="item" wx:key="index">
         <template is="wxParse12" data="{{item}}" />
       </block>
     </view>

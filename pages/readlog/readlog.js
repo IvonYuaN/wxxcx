@@ -1,12 +1,4 @@
-/*
- * 
- * WordPres微信小程序
- * author: Weyooz
- * organization: 未由时光  weyooz.cn
- * github:    https://github.com/weyooz/wxxcx
- * Copyright (c) 2019 https://weyooz.cn All Rights Reserved.
- * 
- */
+
 import config from '../../utils/config.js'
 var Api = require('../../utils/api.js');
 var util = require('../../utils/util.js');
@@ -15,6 +7,9 @@ var WxParse = require('../../wxParse/wxParse.js');
 var wxApi = require('../../utils/wxApi.js')
 var wxRequest = require('../../utils/wxRequest.js');
 var app = getApp();
+var webSiteName= config.getWebsiteName;
+var domain =config.getDomain
+
 Page({
 
   data: {    
@@ -26,7 +21,7 @@ Page({
         { id: '3', name: '点赞', selected: false },
         { id: '4', name: '鼓励', selected: false },
         { id: '5', name: '订阅', selected: false },
-        { id: '6', name: '言论', selected: false }
+        // { id: '6', name: '言论', selected: false }
     ],
     tab: '1',
     showerror: "none",
@@ -35,7 +30,9 @@ Page({
     userInfo:{},
     userLevel:{},
     openid:'',
-    isLoginPopup: false  
+    isLoginPopup: false ,
+    webSiteName:webSiteName,
+    domain:domain 
   },
 
   /**
@@ -95,8 +92,6 @@ Page({
                     }
                 })
             }
-
-
         });
     }
     else {
@@ -113,7 +108,6 @@ Page({
     wx.reLaunch({
         url: '../index/index'
       })
-
   },
   clear:function(e)
   {
@@ -306,10 +300,8 @@ Page({
                   this.setData({
                       showerror: 'block'
                   });
-
               }
           })
-
     }
       else if (tab == '5') {
           self.setData({
@@ -331,7 +323,6 @@ Page({
                               return item;
                           }))
                       });
-
                   }
                   if (count == 0) {
                       self.setData({
@@ -344,7 +335,6 @@ Page({
                   this.setData({
                       showerror: 'block'
                   });
-
               }
           })
 

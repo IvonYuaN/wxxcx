@@ -1,13 +1,4 @@
-<!--
-/*
- * 
- * WordPres微信小程序
- * author: Weyooz
- * organization: 未由时光  weyooz.cn
- * github:    https://github.com/weyooz/wxxcx
- * Copyright (c) 2019 https://weyooz.cn All Rights Reserved.
- * 
- */-->
+
 <import src="../../wxParse/wxParse.wxml"/>
 <import src="../../templates/header.wxml"/> 
 <view class="container">
@@ -21,4 +12,8 @@
                     <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
                     </view>
                 </view>
+
+            <view class="ditail-copyright" style="display:{{display}}">
+    <template is="tempCopyright" data="{{webSiteName:webSiteName,domain:domain}}"/>
+  </view>
 </view>

@@ -1,12 +1,4 @@
-/*
- * 
- * WordPres微信小程序
- * author: Weyooz
- * organization: 未由时光  weyooz.cn
- * github:    https://github.com/weyooz/wxxcx
- * Copyright (c) 2019 https://weyooz.cn All Rights Reserved.
- * 
- */
+
 function wxPromisify(fn) {
   return function (obj = {}) {
     return new Promise((resolve, reject) => {

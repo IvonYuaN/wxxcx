@@ -1,12 +1,4 @@
-/*
- * 
- * WordPres微信小程序
- * author: Weyooz
- * organization: 未由时光  weyooz.cn
- * github:    https://github.com/weyooz/wxxcx
- * Copyright (c) 2019 https://weyooz.cn All Rights Reserved.
- * 
- */
+
 
 function formatTime(date) {
   var year = date.getFullYear()
@@ -274,6 +266,8 @@ function drawTitleExcerpt(context, title, excerpt) {
     context.save();
 }
 
+
+
 module.exports = {
   formatTime: formatTime,
   getDateDiff: getDateDiff,
@@ -290,6 +284,7 @@ module.exports = {
   getDateOut:getDateOut,
   drawTitleExcerpt: drawTitleExcerpt,
   getStrLength: getStrLength
+
   
 }
 

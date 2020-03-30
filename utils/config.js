@@ -1,33 +1,13 @@
-/*
- * 
- * WordPres微信小程序
- * author: Weyooz
- * organization: 未由时光  weyooz.cn
- * github:    https://github.com/weyooz/wxxcx
- * Copyright (c) 2019 https://weyooz.cn All Rights Reserved.
- * 
- */
-
-
 
 //配置域名,域名只修改此处。
-//如果wordpress没有安装在网站根目录请加上目录路径,例如："weyooz.cn/blog"
+//如果wordpress没有安装在网站根目录请加上目录路径,例如："www.watch-life.net/blog"
 var DOMAIN = "www.weyooz.cn";
-var MINAPPTYPE="1";//小程序的类型，如果是企业小程序请填：0 ，如果是个人小程序请填：1
 var WEBSITENAME="未由时光"; //网站名称
-var ABOUTID = 648; //wordpress网站"页面"的id,注意这个"页面"是wordpress的"页面"，不是"文章"
-var PAGECOUNT='10'; //每页文章数目
-//CATEGORIESID 指定为all或者指定具体的分类id，请选择其一。
-var CATEGORIESID='7,8,11,49';  //专题页显示全部的分类
-//var CATEGORIESID = '1,1059,98,416,189,374,6,463';//指定专题页显示的分类的id
-//INDEXLISTTYPE 指定为all或者指定具体的分类id，请选择其一。
-var INDEXLISTTYPE="all"; //首页显示所有分类
-//var INDEXLISTTYPE ="11" //指定首页显示分类的id
+var PAGECOUNT='6'; //每页文章数目
 var PAYTEMPPLATEID = 'EiHxYpEt3PdsiLYNWlPfSRXl8gP7hc9FcVvNKP76DLQ';//鼓励消息模版id
-var REPLAYTEMPPLATEID = 'lh_Cd4vOhRK6FdaBmQsM77qc-P0Pgv_o487-GvqxhWw';//回复评论消息模版id
+var REPLAYTEMPPLATEID = 'VT2fqvp2ydfBucciXsOjBQgxrnGcDPaomtAPLYOwcxE';//回复评论消息模版id
 var ZANIMAGEURL = 'https://cdn.weyooz.cn/wp-content/uploads/wx_reward.png';//微信鼓励的图片链接，用于个人小程序的赞赏
 var LOGO = "../../images/logo.png"; // 网站的logo图片
-var POSTERIMGURL ="../../images/logo.png"; //生成海报如果没有首图，使用此处设置的图片作为海报图片。
 //设置downloadFile合法域名,不带https ,在中括号([])里增加域名，格式：{id=**,domain:'www.**.com'}，用英文逗号分隔。
 //此处设置的域名和小程序与小程序后台设置的downloadFile合法域名要一致。
 var DOWNLOADFILEDOMAIN = [
@@ -42,28 +22,28 @@ var DOWNLOADFILEDOMAIN = [
  //'appid' 当redirecttype为miniapp时，这个值为其他微信小程序的appid，如果redirecttype为apppage，webpage时，这个值设置为空。
  //'extraData'当redirecttype为miniapp时，这个值为提交到其他微信小程序的参数，如果redirecttype为apppage，webpage时，这个值设置为空。
 var INDEXNAV = [
-  { id: '1', name: '微慕', image: '../../images/nav-icon1.png', url: 'pages/index/index', redirecttype: 'miniapp', appid: 'wx074a216a7aabc30c', extraData: '' },
-  { id: '2', name: '企业', image: '../../images/nav-icon2.png', url: 'pages/index/index', redirecttype: 'miniapp', appid: 'wxc1771b619b83316b', extraData: '' },
-  { id: '3', name: '旅游', image: '../../images/nav-icon3.png', url: 'pages/index/index', redirecttype: 'miniapp', appid: 'wxa43aaa8416cdbd61', extraData: '' },
-  { id: '4', name: '图片', image: '../../images/nav-icon4.png', url: 'pages/index/index', redirecttype: 'miniapp', appid: 'wxe9440e3d24b04152', extraData: ''},
-  { id: '5', name: '微店', image: '../../images/nav-icon5.png', url: 'pages/shelf/shelf', redirecttype: 'miniapp', appid: 'wx55ea6098e41af5c4', extraData: ''}
-  // { id: '6', name: '教程', image: '../../images/app.png', url: '../../pages/list/list?categoryID=1059', redirecttype: 'apppage', appid: '', extraData: ''}
-    
-    ];
+  { id: '1', name: '未由去水印', image: 'https://cdn.weyooz.cn/wp-content/uploads/dy.png', url: 'duanshipin_qushuiyin/pages/index/index', redirecttype: 'miniapp', appid: 'wxd72e68ae9ce697dd', extraData: '', disc: '专业去除短视频水印神器'},
+  //{ id: '2', name: '增强版', image: '../../images/uploads/minapper-plus.jpg', url: 'pages/index/index', redirecttype: 'miniapp', appid: 'wx46926513e9b706d3', extraData: ''},
+  //{ id: '4', name: '技术支持', image: '../../images/uploads/minapper-bi.png', url: 'pages/social/social', redirecttype: 'miniapp', appid: 'wxc1771b619b83316b', extraData: '' },
+  { id: '5', name: '排行', image: 'https://cdn.weyooz.cn/wp-content/uploads/xcx-bg1.png', url: '../hot/hot', redirecttype: 'apppage', appid: '', extraData: '' },
+  { id: '6', name: '搜索', image: 'https://cdn.weyooz.cn/wp-content/uploads/xcx-bg2.png', url: '../search/search', redirecttype: 'apppage', appid: '', extraData: '' },
+  //{ id: '7', name: '小程序', image: '../../images/uploads/miniprogram.png', url: '../list/list?categoryID=1059', redirecttype: 'apppage', appid: '', extraData: '' },
+  { id: '8', name: '官网', image: 'https://cdn.weyooz.cn/wp-content/uploads/xcx-bg3.png', url: 'https://www.weyooz.cn', redirecttype: 'webpage', appid: '', extraData: '' },
+  //{ id: '9', name: '言论', image: '../../images/uploads/comment.png', url: '../comments/comments', redirecttype: 'apppage', appid: '', extraData: '' },
+  { id: '10', name: '关于', image: 'https://cdn.weyooz.cn/wp-content/uploads/xcx-bg4.png', url: '../about/about', redirecttype: 'apppage', appid: '', extraData: '' }
+  
+];
+
+
 
 export default {
   getDomain: DOMAIN,
-  getWebsiteName: WEBSITENAME,
-  getAboutId: ABOUTID,
+  getWebsiteName: WEBSITENAME,  
   getPayTemplateId: PAYTEMPPLATEID,
   getPageCount: PAGECOUNT,
-  getCategoriesID :CATEGORIESID,
   getIndexNav: INDEXNAV,
-  getReplayTemplateId: REPLAYTEMPPLATEID,
-  getMinAppType: MINAPPTYPE,
-  getZanImageUrl: ZANIMAGEURL,
-  getIndexListType: INDEXLISTTYPE,
+  getReplayTemplateId: REPLAYTEMPPLATEID,  
+  getZanImageUrl: ZANIMAGEURL, 
   getLogo: LOGO,
-  getPostImageUrl: POSTERIMGURL,
   getDownloadFileDomain: DOWNLOADFILEDOMAIN
 }

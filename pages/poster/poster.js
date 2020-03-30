@@ -1,12 +1,4 @@
-/*
- * 
- * WordPres微信小程序
- * author: Weyooz
- * organization: 未由时光  weyooz.cn
- * github:    https://github.com/weyooz/wxxcx
- * Copyright (c) 2019 https://weyooz.cn All Rights Reserved.
- * 
- */
+
 
 var Api = require('../../utils/api.js');
 var util = require('../../utils/util.js');
@@ -56,7 +48,7 @@ Page({
                         console.log(result)
                         wx.showModal({
                             title: '提示',
-                            content: '二维码海报已存入手机相册，赶快分享到朋友圈吧',
+                            content: '二维码海报已存入手机相册，赶快分享吧',
                             showCancel: false,
                             success: function (res) {
                                 if (res.confirm) {

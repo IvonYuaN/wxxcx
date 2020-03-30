@@ -1,18 +1,12 @@
-/*
- * 
- * WordPres微信小程序
- * author: Weyooz
- * organization: 未由时光  weyooz.cn
- * github:    https://github.com/weyooz/wxxcx
- * Copyright (c) 2019 https://weyooz.cn All Rights Reserved.
- * 
- */
 
 var Api = require('../../utils/api.js');
 var util = require('../../utils/util.js');
 var WxParse = require('../../wxParse/wxParse.js');
 var wxApi = require('../../utils/wxApi.js')
 var wxRequest = require('../../utils/wxRequest.js')
+
+var webSiteName= config.getWebsiteName;
+var domain =config.getDomain
 
 import config from '../../utils/config.js'
 
@@ -45,6 +39,8 @@ Page({
         { id: '4', name: '鼓励数', selected: false }
     ],
     tab: '1',
+    webSiteName:webSiteName,
+    domain:domain
 
   },
   formSubmit: function (e) {
@@ -57,7 +53,7 @@ Page({
     })
   },
   onShareAppMessage: function () {
-    var title = "分享“"+ config.getWebsiteName +"”的文章排行。";
+    var title = "分享“"+ webSiteName +"”的文章排行。";
     var path ="pages/hot/hot";
     return {
       title: title,
