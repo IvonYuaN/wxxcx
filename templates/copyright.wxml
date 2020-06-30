@@ -1,3 +1,4 @@
 <template name="tempCopyright">
-<view style="font-family:OnePlus">  © 2020 {{webSiteName}} {{domain}} </view>
+<view>{{webSiteName}}</view>
+<view>{{domain}}</view>
 </template>

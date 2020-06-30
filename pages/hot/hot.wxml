@@ -48,7 +48,7 @@
 
   </view>
 
-  <view class="copyright" style="display:{{floatDisplay}}">
+  <view class="copyright-hot" style="display:{{floatDisplay}}">
     <template is="tempCopyright" data="{{webSiteName:webSiteName,domain:domain}}"/>
   </view>
 </view>

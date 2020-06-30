@@ -97,8 +97,8 @@
       <view class="no-more" hidden="{{!isLastPage}}">- 无更多文章 -</view>
     </view>
     <!-- 版权信息template模板 -->
-    <view class="copyright" style="display:{{floatDisplay}}">
-  <template is="tempCopyright" data="{{webSiteName:webSiteName,domain:domain}}"/>
+    <view class="copyright-index" style="display:{{floatDisplay}}">
+      <template is="tempCopyright" data="{{webSiteName:webSiteName,domain:domain}}"/>
     </view>
   </view>
 </view>

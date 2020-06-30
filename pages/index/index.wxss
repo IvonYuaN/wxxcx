@@ -13,7 +13,7 @@ swiper image {
   width: 94%;
   height: 300rpx;
   margin-left: 24rpx;
-  border-radius: 8rpx;
+  border-radius: 20rpx;
 
 }
 
@@ -184,7 +184,7 @@ swiper image {
 .selected-nav-item image {
   width: 156rpx;
   height: 120rpx;
-  border-radius: 10rpx;
+  border-radius: 20rpx;
   background: #f5f7f7;
 }
 
@@ -202,7 +202,7 @@ swiper image {
 
 .selected-nav-item-miniapp image {
   position: relative;
-  border-radius: 10rpx;
+  border-radius: 20rpx;
   width: 705rpx;
   height: 200rpx;
 }
@@ -255,4 +255,18 @@ swiper image {
   position: absolute;
   right: 118rpx;
   top: -10rpx;
+}
+
+/*首页版权*/
+.copyright-index {
+  display: block;
+  margin: 0 auto;
+  color: #c4c4c480;
+  text-align: center;
+  font-size: 28rpx;
+  font-weight: 300;
+  background-color: #f7f8f9;
+  margin-bottom: 20rpx;
+  padding: 30rpx 0rpx;
+  border-radius: 20rpx;
 }

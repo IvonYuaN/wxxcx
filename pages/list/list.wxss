@@ -5,10 +5,10 @@
   height: 300rpx;
   overflow: hidden;
   position: relative;
-  border-radius: 8rpx;
+  border-radius: 20rpx;
 }
 
-.cover {
+.topic-list-item .cover {
   width: 100%;
   height: 300rpx;
   filter: brightness(80%);

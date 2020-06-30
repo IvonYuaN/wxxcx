@@ -74,7 +74,7 @@
   margin-bottom: 24rpx;
   width: 94%;
   margin-left: 24rpx;
-  border-radius: 8rpx;
+  border-radius: 20rpx;
 }
 
 .tab-item {
@@ -104,4 +104,18 @@
   left: 50%;
   bottom: 0;
   margin-left: -20rpx;
+}
+
+.copyright-hot {
+  display: block;
+  margin: 0 auto;
+  color: #c4c4c480;
+  text-align: center;
+  font-size: 28rpx;
+  font-weight: 300;
+  margin-top: 40rpx;
+  background-color: #f7f8f9;
+  margin-bottom: 20rpx;
+  padding: 30rpx 0rpx;
+  border-radius: 20rpx;
 }

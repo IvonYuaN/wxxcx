@@ -17,10 +17,10 @@
       <text class="userinfo_role" decode="{{true}}">{{openid !='' ? userLevel.levelName : '角色'}}</text>
       <!-- 更新信息按钮 -->
       <view class="btn-update" wx:if="{{openid !=''}}">
-        <button open-type="getUserInfo" bindgetuserinfo="refresh">更新信息</button>
+        <button open-type="getUserInfo" bindgetuserinfo="refresh">刷 新</button>
       </view>
       <!-- 退出登录按钮 -->
-      <view class="btn-exit" catchtap="exit">{{openid !='' ? '退出登录' : '清除缓存'}}</view>
+      <view class="btn-exit" catchtap="exit">{{openid !='' ? '退 出' : '清除缓存'}}</view>
     </view>
   </view>
 
@@ -57,7 +57,7 @@
   </view>
 
   <!-- 版权信息 -->
-  <view class="copyright" style="display:{{(shownodata === 'none') ? 'block' : 'none'}}">
+  <view class="copyright-readlog" style="display:{{(shownodata === 'none') ? 'block' : 'none'}}">
      <template is="tempCopyright" data="{{webSiteName:webSiteName,domain:domain}}"/>
   </view>
 
