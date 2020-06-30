@@ -1,4 +1,5 @@
-未由时光小程序基于jianbo大佬的开源项目<a href="https://github.com/iamxjb/winxin-app-watch-life.net" target="_blink">守望轩</a>二次开发，源代码发布Github上供小伙伴学习交流！欢迎Fork & Watch & star<br>
+未由时光小程序基于jianbo大佬的开源项目<a href="https://github.com/iamxjb/winxin-app-watch-life.net" target="_blink">守望轩</a>二次开发，源代码发布Github上供小伙伴学习交流！<br>
+欢迎Fork & Watch & star<br>
 小程序后端基于WordPress，配合jianbo大佬写的<a href="https://github.com/iamxjb/rest-api-to-miniprogram" target="_blink">Rest api to miniprogram</a>插件使用！<br>
 未由时光小程序开源版本随缘更新！有问题欢迎联系反馈！<br>
 
