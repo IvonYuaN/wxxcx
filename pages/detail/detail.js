@@ -95,6 +95,10 @@ Page({
     self.fetchDetailData(options.id);
     Auth.setUserInfoData(self);
     Auth.checkLogin(self);
+    wx.showShareMenu({
+      withShareTicket:true,
+      menus:['shareAppMessage','shareTimeline']
+      })
     wx.getSystemInfo({
       success: function (t) {
         var system = t.system.indexOf('iOS') != -1 ? 'iOS' : 'Android';

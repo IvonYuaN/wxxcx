@@ -106,6 +106,7 @@ Page({
     var self = this;
     self.fetchTopFivePosts();
     self.fetchPostsData(self.data);  
+    
 
     // 判断用户是不是第一次打开，弹出添加到我的小程序提示
     var isFirstStorage = wx.getStorageSync('isFirst');
@@ -122,11 +123,15 @@ Page({
         });
       }, 5000)
     }
-
+    
   },
   onShow: function (options) {
     wx.setStorageSync('openLinkCount', 0);
-
+    wx.showShareMenu({
+      withShareTicket:true,
+      menus:['shareAppMessage','shareTimeline']
+      })
+      
     var nowDate = new Date();
     nowDate = nowDate.getFullYear()+"-"+(nowDate.getMonth() + 1)+'-'+nowDate.getDate();
     nowDate= new Date(nowDate).getTime();   

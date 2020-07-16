@@ -24,7 +24,7 @@
 
 .entry-summary image {
   width: 100%;
-  border-radius: 8rpx;
+  border-radius: 20rpx;
 }
 
 /* 标题 */
@@ -221,6 +221,7 @@
 }
  
 .comment-gravatar {
+  margin: 5rpx 0rpx 0rpx 5rpx;
   width: 70rpx;
   height: 70rpx;
   border-radius: 6rpx;

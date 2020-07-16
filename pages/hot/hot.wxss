@@ -85,6 +85,7 @@
   text-align: center;
   line-height: 100rpx;
   font-size: 30rpx;
+  border-radius: 20rpx;
 }
 
 /* 选中样式 */
@@ -93,6 +94,7 @@
   position: relative;
   color: #118fff;
   font-weight: 500;
+  border-radius: 20rpx;
 }
 
 .tab-Selected::after {
