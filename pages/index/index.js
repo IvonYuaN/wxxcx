@@ -153,7 +153,7 @@ Page({
         self.setData({
           postsShowSwiperList: self.data.postsShowSwiperList.concat(response.data.posts.map(function (item) {
             if (!item.post_large_image) {
-              item.post_large_image = "../../images/logo700.png";
+              item.post_large_image = "../../images/logo.png";
             }
             return item;
           })),

@@ -22,7 +22,7 @@ var DOWNLOADFILEDOMAIN = [
  //'appid' 当redirecttype为miniapp时，这个值为其他微信小程序的appid，如果redirecttype为apppage，webpage时，这个值设置为空。
  //'extraData'当redirecttype为miniapp时，这个值为提交到其他微信小程序的参数，如果redirecttype为apppage，webpage时，这个值设置为空。
 var INDEXNAV = [
-  { id: '1', name: '未由去水印', image: 'https://cdn.weyooz.cn/wp-content/uploads/dy.png', url: 'duanshipin_qushuiyin/pages/index/index', redirecttype: 'miniapp', appid: 'wxd72e68ae9ce697dd', extraData: '', disc: '专业去除短视频水印神器'},
+  { id: '1', name: '未由运维', image: 'https://cdn.weyooz.cn/wp-content/uploads/dy.png', url: 'pages/index/index', redirecttype: 'miniapp', appid: 'wx10b398d6579806ca', extraData: '', disc: '运维界的一个小学生笔记'},
   //{ id: '2', name: '增强版', image: '../../images/uploads/minapper-plus.jpg', url: 'pages/index/index', redirecttype: 'miniapp', appid: 'wx46926513e9b706d3', extraData: ''},
   //{ id: '4', name: '技术支持', image: '../../images/uploads/minapper-bi.png', url: 'pages/social/social', redirecttype: 'miniapp', appid: 'wxc1771b619b83316b', extraData: '' },
   { id: '5', name: '排行', image: 'https://cdn.weyooz.cn/wp-content/uploads/xcx-bg1.png', url: '../hot/hot', redirecttype: 'apppage', appid: '', extraData: '' },
