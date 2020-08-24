@@ -12,9 +12,10 @@ Github:https://github.com/weyooz/wxxcx <br>
 使用说明：https://www.weyooz.cn/xcx/873.html <br>
 小程序体验:<br>![image](https://cdn.weyooz.cn/wp-content/uploads/xcx.jpg)
 
------2020.07.16更新1.9.6版本-----<br>
-本次主要加入分享到朋友圈（Beta）特性<br>
-优化一些细节UI<br>
+
+-----2020.08.24更新1.9.7版本-----<br>
+本次主要修改首页轮播图和个人中心样式<br>
+加入小程序合集页面<br>
 
 -----2020.06.30更新1.9.5版本-----<br>
 本次主要小幅调整UI圆角<br>
