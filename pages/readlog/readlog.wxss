@@ -1,13 +1,25 @@
 /* 用户信息 */
+.userinfo-head {
+  height: 210rpx;
+}
+.userinfo-head image {
+  position: absolute;
+  margin: 0 auto;
+  width: 100% !important;
+  height: 400rpx !important;
+  border-radius: 0rpx 0rpx 30rpx 30rpx;
+}
 
 .userinfo {
+  position: relative;
   display: flex;
   align-items: center;
-  background-image: url("https://cdn.weyooz.cn/wp-content/uploads/xcx-bg4.png");
-  height: 300rpx;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 5px 0px 5px -5px #ececec, -5px 0px 5px -5px #ececec;
+  height: 200rpx;
   width: 94%;
-  margin: 24rpx;
-  border-radius: 8px;
+  margin: 0rpx 24rpx;
+  border-radius: 20rpx 20rpx 0rpx 0rpx;
 }
 
 /* 头像 */
@@ -22,13 +34,13 @@
 
 .userinfo_right {
   margin-left: 40rpx;
-  color: #fff;
+  color: #000;
 }
 
 .userinfo_nickname {
   font-size: 36rpx;
   font-weight: 600;
-  line-height: 1;
+  line-height: 2;
   display: block;
 }
 
@@ -44,35 +56,33 @@
 
 .userinfo_role {
   display: block;
-  padding: 0 16rpx;
-  border: 1rpx solid rgba(255, 255, 255, 0.7);
+  padding: 0 20rpx;
   border-radius: 20rpx;
-  background-color: transparent;
+  background-color: #00B26A;
   box-sizing: border-box;
   opacity: 0.6;
   font-size: 10px;
   color: #fff;
-  line-height: 32rpx;
+  line-height: 2;
 }
 
 /* 更新信息按钮 */
 
 .btn-update {
   font-size: 16rpx;
-  color: #fff;
+  color: #000;
 }
 
 .btn-update>button, .btn-exit {
   padding: 0 16rpx;
   margin-left: 24rpx;
-  border: 1rpx solid rgba(255, 255, 255, .7);
   border-radius: 20rpx;
-  background-color: transparent;
+  background-color: #0967D2;
   box-sizing: border-box;
   opacity: 0.6;
   font-size: 10px;
   color: #fff;
-  line-height: 32rpx;
+  line-height: 2;
 }
 
 .btn-update>button::after {

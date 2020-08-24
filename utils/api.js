@@ -166,7 +166,7 @@ module.exports = {
   getContentFirstImage: function (content){
     var regex = /<img.*?src=[\'"](.*?)[\'"].*?>/i;
     var arrReg = regex.exec(content);
-    var src ="../../images/logo700.png";
+    var src ="../../images/logo.png";
     if(arrReg){   
       src=arrReg[1];
     }

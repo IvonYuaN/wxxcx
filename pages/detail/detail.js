@@ -345,6 +345,7 @@ Page({
     getPostDetailRequest
       .then(response => {
         res = response;
+        WxParse.wxParse('article', 'html', response.data.content.rendered.replace(/<pre[^>]*><code class=\"([^\s]*)\">/g, "<pre class=\"pure-highlightjs $1\">").replace(/<\/code><\/pre>/g, "</pre>"), self, 5);
         if (response.data.code && (response.data.data.status == "404")) {
           self.setData({
             showerror: 'block',

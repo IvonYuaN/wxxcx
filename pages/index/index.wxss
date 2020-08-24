@@ -1,17 +1,31 @@
+.wx-swiper-dot {
+  width: 60rpx !important;
+  height: 8rpx !important;
+  background: rgba(0, 0, 0,.1) !important;
+  opacity: 1 !important; 
+  margin: 10rpx !important;
+  border: 0; 
+  border-radius: 20rpx !important;
+}
+
+.wx-swiper-dot-active {
+  background: rgba(255, 255, 255, 1) !important;
+  border-radius: 20rpx !important;
+  margin: 10rpx !important;
+}
 
 
 /* 轮播图 */
 swiper {
   position: relative;
-  height: 420rpx;
+  height: 350rpx;
   background: #fff;
-  box-shadow: 0px 22px 50px -24px rgba(0, 0, 0, 0.1);
 }
 
 swiper image {
   display: block;
   width: 94%;
-  height: 300rpx;
+  height: 350rpx;
   margin-left: 24rpx;
   border-radius: 20rpx;
 
@@ -23,8 +37,8 @@ swiper image {
   border-radius: 8rpx;
   text-align: center;
   font-size: 30rpx;
-  font-weight: 500;
-  color: #000;
+  font-weight: 700;
+  color: #fff;
   line-height: 150rpx;
   overflow: hidden;
   white-space: nowrap;
@@ -34,6 +48,7 @@ swiper image {
   left: 0;
   right: 0;
 }
+
 
 /* 图标导航 */
 .nav-box{
@@ -108,43 +123,11 @@ swiper image {
 }
 */
 
-/*模块标题样式 */
-.common-subtitle {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  height: 100rpx;
-  background: #fff;
-}
-
-.common-subtitle-left {
-  font-size: 32rpx;
-  color: #333;
-  font-weight: 500;
-}
-
-.common-subtitle-left_bg {
-  width: 160rpx;
-  height: 16rpx;
-  background: linear-gradient(270deg,rgba(249,228,135,0) 0%,rgb(241, 138, 79) 100%);
-  border-radius: 13rpx;
-  position: absolute;
-  top: 475rpx;
-  left: 24rpx;
-}
-
-.common-subtitle-right {
-  font-size: 26rpx;
-  font-weight: 400;
-  color: #959595;
-  margin-right: 6rpx;
-}
 
 /*首页文章模块标题*/
 .common-title-index {
   width: 94%;
-  margin: 10rpx 0 30rpx 24rpx;
+  margin: 0rpx 0 30rpx 24rpx;
   background: #fff;
 }
 
@@ -152,11 +135,17 @@ swiper image {
   position: relative;
   font-size: 32rpx;
   color: #333;
-  font-weight: 500;
+  font-weight: 700;
+}
+
+.common-title-sma {
+  font-weight: 300;
+  color: #898989;
+  font-size: 22rpx;
 }
 
 .common-title-bg {
-  width: 160rpx;
+  width: 260rpx;
   height: 14rpx;
   background: linear-gradient(270deg,rgba(249,228,135,0) 0%,rgb(79, 109, 241) 100%);
   border-radius: 13rpx;
@@ -183,9 +172,9 @@ swiper image {
 
 .selected-nav-item image {
   width: 156rpx;
-  height: 120rpx;
-  border-radius: 20rpx;
-  background: #f5f7f7;
+  height: 100rpx;
+  border-radius: 14rpx;
+  margin-top: 40rpx;
 }
 
 .selected-nav-item text {

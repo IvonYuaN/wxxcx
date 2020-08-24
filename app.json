@@ -4,6 +4,7 @@
         "pages/detail/detail",
         "pages/logs/logs",
         "pages/page/page",
+        "pages/miniapp/miniapp",
         "pages/about/about",
         "pages/list/list",
         "pages/topic/topic",
@@ -57,7 +58,9 @@
     },
     "navigateToMiniProgramAppIdList": [
         "wxd72e68ae9ce697dd",
-        "wx10b398d6579806ca"
+        "wx10b398d6579806ca",
+        "wxbe8bd04b0ee9cf35"
+
     ],
     "sitemapLocation": "sitemap.json",
     "resizable":false

@@ -3,6 +3,10 @@
 <import src="../../templates/copyright.wxml" />
 <import src="../../templates/login-popup.wxml" />
 
+<!-- 头部 -->
+<view class="userinfo-head">
+    <image src="https://cdn.weyooz.cn/wp-content/uploads/7e385be89b6.jpg"></image>
+</view>
 <!-- 用户信息 -->
 <view class="userinfo">
 

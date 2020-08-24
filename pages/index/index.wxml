@@ -12,7 +12,7 @@
 
 <!-- 轮播图 -->
 <view style="display:{{displaySwiper}}">
-  <swiper indicator-dots="true" interval="10000" autoplay="true" indicator-color="rgba(0, 0, 0, .1)" indicator-active-color="rgba(0, 0, 0, .6)">
+  <swiper indicator-dots="true" interval="3000" autoplay="true" >
     <block wx:key="id" wx:for="{{postsShowSwiperList}}">
       <swiper-item id="{{item.id}}" index="{{index}}" data-redicttype="{{item.type}}" data-appid="{{item.appid}}" data-url="{{item.url}}" bindtap="redictAppDetail">
         <image mode="aspectFill" src="{{item.post_full_image}}" />
@@ -44,11 +44,6 @@
 
     <!-- 精选栏目 -->
     <view class="selected-nav" wx:if="{{topNav.length != 0}}">
-      <view class='common-subtitle'>
-        <view class='common-subtitle-left'>随便看看</view>
-        <view class='common-subtitle-left_bg'></view>
-        <!-- <view class='common-subtitle-right'>滑动查看</view>-->
-      </view>
       <!-- 栏目列表 -->
       <scroll-view scroll-x>
         <view class="selected-nav-list">
@@ -77,7 +72,7 @@
       </scroll-view>
     </view>
     <view class='common-title-index'>
-        <view class='common-title'>全部文章</view>
+        <view class='common-title'>文章 <text class="common-title-sma">也难如钩 也难圆</text></view>
         <view class='common-title-bg'></view>
         <!-- <view class='common-subtitle-right'>滑动查看</view>-->
       </view>

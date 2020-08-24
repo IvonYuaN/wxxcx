@@ -1,4 +1,7 @@
 @import "vendor/ZanUI/index.wxss";
+page {
+  font-family: OnePlus,Microsoft YaHei, Helvetica, Arial, sans-serif;
+}
 
 .container {
   padding: 0 24rpx;

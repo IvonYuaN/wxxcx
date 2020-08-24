@@ -1,0 +1,28 @@
+<import src="../../templates/copyright.wxml" />
+<import src="../../templates/login-popup.wxml" />
+<import src="../../templates/copyright.wxml" />
+	<!-- 标题 --
+	<view class="index-h">
+		<font><label class="index-h-blue _span">小</label>程序展示</font>
+		<font class="index-h-all">ALL</font>
+	</view>
+  -->
+<view class="topic-list clearfix">
+  <block wx:key="id" wx:for="{{topNav}}">
+  	<navigator path="{{item.url}}" hover-class="none" open-type="navigate" app-id="{{item.appid}}" target="miniProgram" style='opacity:{{index >= (page-1)*2?op:"1"}};margin-top:{{index >= (page-1)*2?mr:"0"}}rpx;transition:all {{index >= (page-1)*2?(index-(page-1)*2)*0.5+0.5:"0"}}s;' >
+      <view class="list-item" >
+        <view>
+          <image src="{{item.image}}" class="topic-img" data-item="{{item.name}}" data-id="{{item.id}}" bindtap="redictIndex" mode="aspectFill"></image>
+        </view>
+        <view class="topic-name-box" data-item="{{item.name}}" data-id="{{item.id}}" bindtap="redictIndex">
+          <view class="topic-name">
+            <text>{{item.name}}</text>
+          </view>
+        </view>
+        <view class="topic-brief" data-item="{{item.name}}" data-id="{{item.id}}">
+          <text>{{item.extraData}}</text>
+        </view>
+      </view>
+    </navigator>
+  </block>
+</view>

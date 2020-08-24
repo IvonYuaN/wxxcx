@@ -1,9 +1,8 @@
 <import src="../../templates/copyright.wxml" />
 
 <view class="search-head" style="display:{{display}}">
-    <image class="search-head-img" src="../../images/logo.png"></image>
-    <text>既然尚未拥有自由.那么皮就完事了</text>
-    <view class='search-head-wd'>小程序全局搜索</view>
+    <image class="search-head-img" src="../../images/xh1.png"></image>
+    <text>我与春风皆过客，你携秋水揽星河</text>
     <view class='search-head-wd-bg'></view>
     
 </view>

@@ -7,23 +7,20 @@
 .search-head {
   font-size: 30rpx;
   text-align: center;
+  color: #898989;
 }
 .search-head-img {
   display: block;
   margin: 0 auto;
-  width: 300rpx;
-  height: 300rpx;
-}
-
-.search-head-wd{
-  margin: 60rpx 0 0 0;
+  width: 500rpx;
+  height: 380rpx;
 }
 
 .search-head-wd-bg{
   display: block;
   margin: 0 auto;
-  width: 200rpx;
-  height: 14rpx;
+  width: 450rpx;
+  height: 18rpx;
   background: linear-gradient(270deg,rgba(249,228,135,0) 0%,rgb(79, 109, 241) 100%);
   border-radius: 13rpx;
 }

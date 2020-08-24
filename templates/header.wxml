@@ -1,10 +1,9 @@
 
-
 <template name="tempHeader">
   <view class="header">
     <image src="../../images/logo.png" style="height:200rpx;width:200rpx"></image>
     <view style='margin-top:40rpx'>
-      既然尚未拥有自由，皮就完事了
+      寂寞小楼新雨月，也难如勾也难圆
     </view>
   </view>
 </template>
