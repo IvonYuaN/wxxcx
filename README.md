@@ -13,6 +13,9 @@ Github:https://github.com/weyooz/wxxcx <br>
 小程序体验:<br>![image](https://cdn.weyooz.cn/wp-content/uploads/xcx.jpg)
 
 
+-----2020.08.25更新1.9.8版本-----<br>
+优化文章详情页的UI和图标<br>
+
 -----2020.08.24更新1.9.7版本-----<br>
 本次主要修改首页轮播图和个人中心样式<br>
 加入小程序合集页面<br>

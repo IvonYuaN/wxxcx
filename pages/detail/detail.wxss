@@ -64,25 +64,27 @@
 /* 上下文 */
 
 .up-down-post {
-  padding: 40rpx 16rpx;
   margin-top: 40rpx;
   font-size: 14px;
   line-height: 1.4;
-  color: #333;
-  border: 1px solid #eee;
-  border-radius: 8rpx;
+  color: #fff;
 }
 
 .up-post {
   float: left;
   width: 90%;
   margin-bottom: 16rpx;
+  padding: 24rpx;
+  background-color: #118fff;
+  border-radius: 16rpx;
 }
 
 .down-post {
   float: right;
   text-align: right;
-  width: 90%;
+  padding: 24rpx;
+  background-color: #ff982e;
+  border-radius: 16rpx;
 }
 
 /* 猜你喜欢、评论标题下的横线 */
@@ -457,7 +459,7 @@
   padding: 2px 4px !important;
   font-size: 90% !important;
   color: #333333 !important;
-  background-color: #f9f2f4 !important;
+  background-color: #f2f9ff !important;
   font-family: OnePlus,Source Code Pro, Consolas, Menlo, Monaco, Courier New, monospace !important;
 }
 

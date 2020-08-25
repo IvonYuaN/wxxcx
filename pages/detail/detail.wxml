@@ -256,7 +256,7 @@
                 <view class="iconLine">
                   <view style="width:20%; position: relative; float:left; text-align:center">
                     <view>
-                      <image src="../../images/forwarding.png" class="img-menu"></image>
+                      <image src="../../images/zhuanfa.png" class="img-menu"></image>
                     </view>
                     <view>
                       <text>转发</text>
@@ -266,7 +266,7 @@
                   </view>
                   <view style="width:20%; float:left; text-align:center">
                     <view>
-                      <image src="../../images/poster.png" catchtap="onCreatePoster" class="img-menu"></image>
+                      <image src="../../images/haibao.png" catchtap="onCreatePoster" class="img-menu"></image>
                     </view>
                     <view>
                       <text>海报</text>
@@ -274,7 +274,7 @@
                   </view>
                   <view style="width:20%; float:left; text-align:center">
                     <view>
-                      <image src="../../images/copy.png" class="img-menu" catchtap="gotowebpage"></image>
+                      <image src="../../images/yuanwen.png" class="img-menu" catchtap="gotowebpage"></image>
                     </view>
                     <view>
                       <text>阅读原文</text>
@@ -283,7 +283,7 @@
 
                   <view style="width:20%; float:left; text-align:center">
                     <view>
-                      <image src="../../images/{{likeImag}}" catchtap="clickLike" id="likebottom" class="img-menu"></image>
+                      <image src="../../images/xihuan.png" catchtap="clickLike" id="likebottom" class="img-menu"></image>
                     </view>
                     <view>
                       <text>点赞</text>
@@ -291,7 +291,7 @@
                   </view>
                   <view style="width:20%; float:left; ">
                     <view>
-                      <image src="../../images/appreciation.png" catchtap="praise" class="img-menu"></image>
+                      <image src="../../images/dashang.png" catchtap="praise" class="img-menu"></image>
                     </view>
                     <view>
                       <text>{{detail.praiseWord}}</text>
